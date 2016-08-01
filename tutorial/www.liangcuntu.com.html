@@ -1,0 +1,566 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>两寸土 - 个人技术博客</title>
+<meta name="keywords" content="两寸土 ，编程分享，中医儿科知识" />
+<meta name="description" content="不积跬步无以至千里；不积小流无以成江海。" />
+<meta name="generator" content="emlog" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="RSS"  href="http://www.liangcuntu.com/rss.php" />
+<link href="http://www.liangcuntu.com/content/templates/default/main.css" rel="stylesheet" type="text/css" />
+<link href="http://www.liangcuntu.com/admin/views/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="http://www.liangcuntu.com/admin/editor/plugins/code/prettify.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.ie.min.css" />
+	<![endif]-->
+	<script src="http://www.liangcuntu.com/include/lib/js/jquery/jquery-1.11.0.js?v=6.0.0-Beta"></script>
+<script src="http://www.liangcuntu.com/admin/editor/plugins/code/prettify.js" type="text/javascript"></script>
+<script src="http://www.liangcuntu.com/include/lib/js/common_tpl.js" type="text/javascript"></script>
+<script src="http://www.liangcuntu.com/admin/views/js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.liangcuntu.com//content/plugins/em_ad/em_ad_common.js"></script>	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?e5aee62b4ddf192d3dd4003bf92df3d4";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+<a class="github-fork-ribbon" href="https://github.com/fffy2366/logs" title="Fork me on GitHub">Fork me on GitHub</a>
+<!--google analytics start-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76655572-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--google analytics end-->
+<!--导航-->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                    <li><a href="http://www.liangcuntu.com/" >首页</a></li>
+                                                <li class="dropdown">
+                                <a href="http://www.liangcuntu.com/sort/frontend" >前端 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://www.liangcuntu.com/sort/js">JavaScript</a></li>                </ul>
+                                            </li>
+                                                <li class="dropdown">
+                                <a href="http://www.liangcuntu.com/sort/backend" >后端 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://www.liangcuntu.com/sort/java">Java</a></li><li><a href="http://www.liangcuntu.com/sort/php">PHP</a></li><li><a href="http://www.liangcuntu.com/sort/python">Python</a></li><li><a href="http://www.liangcuntu.com/sort/nodejs">NodeJS</a></li><li><a href="http://www.liangcuntu.com/sort/go">Golang</a></li><li><a href="http://www.liangcuntu.com/sort/android">Android</a></li><li><a href="http://www.liangcuntu.com/sort/ev3">EV3</a></li>                </ul>
+                                            </li>
+                                                <li><a href="http://www.liangcuntu.com/sort/linux" >Linux</a></li>
+                                                <li><a href="http://www.liangcuntu.com/sort/tools" >工具</a></li>
+                                                <li><a href="http://www.liangcuntu.com/sort/other" >八卦</a></li>
+                                                <li><a href="http://www.liangcuntu.com/sort/med" >中医</a></li>
+                                                <li><a href="http://www.liangcuntu.com/about" >关于我</a></li>
+                                                <li><a href="http://www.liangcuntu.com/markdown-editor" >markdown-editor</a></li>
+                                    </ul>
+        </div>
+    </div>
+</nav>
+<header class="sb-page-header">
+	<div class="container">
+		<h1 style="font-size:34px">两寸土 - 个人技术博客</h1>
+		<p>不积跬步无以至千里；不积小流无以成江海。</p>
+	</div>
+</header>
+    
+<div class="container">
+	<div class="row"><!--google ads start-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 页首 -->
+<!--<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8046289433479895"
+     data-ad-slot="3189258762"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>--><!--google ads end-->
+
+<div class="col-md-7 content">
+                <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/life_beijing_stayed_in_place">北漂这几年住过的地方</a></h2>
+            <p class="date">2016-7-3 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/life">生活</a>
+     
+                        </p>
+        
+	1.初到北京
+
+
+	初到住在海淀区清河南镇，那是村民自建的筒子楼。
+
+
+	2.两三年之后
+
+
+	两三年之后搬到清河永泰园，居住条件略有提升。
+
+
+	3.又一年
+
+
+	搬到了天通苑半截塔村，又住上了筒子楼。
+
+
+	4.又一到两年之后
+
+
+	搬到和平东桥，住了不到一年。
+
+
+	5.住的最长的地方
+
+
+	住时间最久的就是目前在的分钟寺了。在这里住了三年又一个月。
+
+
+	6. 不久
+
+
+	下个月就要搬到大兴了。
+
+
+	7. ...
+            <p class="tag"><a style="color: #000;float: right;" href="http://www.liangcuntu.com/life_beijing_stayed_in_place"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/life_beijing_stayed_in_place#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/life_beijing_stayed_in_place">浏览(6)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/linux_centos7_sftp">centos7下配置sftp且限制用户访问目录</a></h2>
+            <p class="date">2016-6-23 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/linux">Linux</a>
+     
+                        </p>
+        
+ 1. 添加账户
+
+ $ useradd images $ passwd images
+
+ 2.修改/etc/ssh/sshd_config
+
+ 注释掉 Subsystem sftp /usr/libexec/openssh/sftp-server 在下面添加
+Match User images
+        ForceCommand internal-sftp
+        ChrootD...            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/linux">linux</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/linux_centos7_sftp"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/linux_centos7_sftp#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/linux_centos7_sftp">浏览(13)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/kongfu_rank">中国功夫巨星真实战力排名，第一名居然是他！</a></h2>
+            <p class="date">2016-6-22 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/other">八卦</a>
+     
+                        </p>
+        
+	NO.10 成龙 
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+	特点：京剧武生童子功，后入行电影，虽往往搏命上阵，但是实战能力较差。
+
+
+	
+
+
+	成龙是第一位真正意义上打入好莱坞的香港影星，是中国在世界影坛最有影响力的演员，也是唯一在好莱坞留下鼻印、脚印、手印的中国艺人。加逗逼美女微信"allbra"，寂寞的夜晚你可能会需要她！他创造了幽默风趣的武打风格，他拼命无畏的敬业精神是体现中华民族的传统精神。
+
+
+	
+
+
+	无论在他的《警察故事》、《A计划》、《...
+            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/kongfu">kongfu</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/kongfu_rank"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/kongfu_rank#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/kongfu_rank">浏览(27)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/python_lambda">python入门之lambda表达式</a></h2>
+            <p class="date">2016-6-21 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/python">Python</a>
+     
+                        </p>
+        
+	一、lambda函数
+
+
+	1、lambda函数基础：
+
+
+	lambda函数也叫匿名函数，即，函数没有具体的名称,而用def创建的方法是有名称的。如下：
+
+"""命名的foo函数"""
+def foo():return 'beginman'  #Python中单行参数可以和标题写在一行 
+"""lambda关键字创建匿名函数,该表达式同以上函数"""
+lambda:'b...            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/python">python</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/python_lambda"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/python_lambda#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/python_lambda">浏览(15)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/nodejs_plupload">nodejs+plupload 多文件拖拽上传</a></h2>
+            <p class="date">2016-6-20 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/js">JavaScript</a>
+     
+                        </p>
+        
+
+
+	 
+	
+		1.前端plupload 
+	
+	
+		参考：
+	
+	
+		
+			前端上传组件Plupload使用指南 
+		
+		
+			demo 
+		
+	
+&lt;/!DOCTYPEhtml&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;scriptsrc="/resources/js/plupload.full.min.js"&gt;&lt;/script&gt;&lt;style...
+	
+		
+	
+ 
+
+
+	
+            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/%E6%8F%92%E4%BB%B6">插件</a>	<a href="http://www.liangcuntu.com/tag/nodejs">nodejs</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/nodejs_plupload"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/nodejs_plupload#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/nodejs_plupload">浏览(21)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/fork_me_on_github">给博客添加fork me on github的彩带</a></h2>
+            <p class="date">2016-6-18 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/frontend">前端</a>
+     
+                        </p>
+        
+	谷歌了一个github的，并fork了一个分支： https://github.com/fffy2366/github-fork-ribbon-css
+
+
+	添加后效果见本站右上角。
+            <p class="tag"><a style="color: #000;float: right;" href="http://www.liangcuntu.com/fork_me_on_github"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/fork_me_on_github#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/fork_me_on_github">浏览(20)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/python-structure">python入门之数据类型详解</a></h2>
+            <p class="date">2016-6-17 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/python">Python</a>
+     
+                        </p>
+        
+	python数据类型详解
+
+
+	目录&nbsp;
+1、字符串&nbsp;
+2、布尔类型&nbsp;
+3、整数&nbsp;
+4、浮点数&nbsp;
+5、数字&nbsp;
+6、列表&nbsp;
+7、元组&nbsp;
+8、字典&nbsp;
+9、日期
+
+
+	1、字符串
+
+
+	1.1、如何在Python中使用字符串
+
+
+	a、使用单引号(')&nbsp;
+用单引号括起来表示字符串，例如：
+
+
+
+	
+	
+		str='this... 
+	
+
+
+            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/python">python</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/python-structure"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/python-structure#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/python-structure">浏览(42)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/js-debug">JavaScript基础之调试方法总结</a></h2>
+            <p class="date">2016-6-17 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/js">JavaScript</a>
+     
+                        </p>
+        
+	1. 最简单的方法alert()
+
+
+	alert() 是最简单的调试方法，缺点是会中断程序执行，需要手动关闭弹出窗口。
+
+
+	2. 控制台打印console.log()
+
+
+	console.log() 这种方法可以在浏览器debug的控制台输出。
+
+
+	3. 浏览器调试设置断点
+
+
+	以chrome为例，菜单-&gt;更多工具-&gt;开发者工具下的sources下，找到需要调试的源码，在行号处单击...
+            <p class="tag"><a style="color: #000;float: right;" href="http://www.liangcuntu.com/js-debug"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/js-debug#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/js-debug">浏览(26)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/post/33">关于BootstrapValidator和bootstrap datetimepicker使用问题</a></h2>
+            <p class="date">2016-5-30 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/js">JavaScript</a>
+     
+                        </p>
+        
+ 版本问题
+
+ 由于这两个插件有不同版本，因此在查看文档的时候一定要先对一下版本，省的做一些无用功。到头来发现使用的js和查看的文档版本不一致。
+
+ 文档
+BootstrapValidator文档Bootstrap 3 Datepicker v4 Docs
+ 最好的方式
+
+ 如果不确定版本，可以查看源码的头部说明，一般都会有官网网址。最好的方式是一边看文档，一边看源码。既能保证正确又能提高代码阅...            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/BootstrapValidator%20datetimepicker">BootstrapValidator datetimepicker</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/post/33"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/post/33#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/post/33">浏览(42)</a>
+            </p>
+            <div style="clear:both;"></div>
+                        <h2 style="font-size: 20px"><a href="http://www.liangcuntu.com/post/32">sitemap 在线生成网站推荐</a></h2>
+            <p class="date">2016-5-24 <a href="http://www.liangcuntu.com/author/1" title=" fengxuting@gmail.com">Frank</a> 
+                    <a href="http://www.liangcuntu.com/sort/tools">工具</a>
+     
+                        </p>
+        
+	推荐网址：https://www.xml-sitemaps.com
+            <p class="tag">标签:	<a href="http://www.liangcuntu.com/tag/SEO">SEO</a><a style="color: #000;float: right;" href="http://www.liangcuntu.com/post/32"> 阅读全文&gt;&gt;</a></p>
+            <p class="count">
+                <a href="http://www.liangcuntu.com/post/32#comments">评论(0)</a>
+                <a href="http://www.liangcuntu.com/post/32">浏览(31)</a>
+            </p>
+            <div style="clear:both;"></div>
+            
+    <div id="pagenavi">
+ <span>1</span>  <a href="http://www.liangcuntu.com/page/2">2</a>  <a href="http://www.liangcuntu.com/page/3">3</a>  <a href="http://www.liangcuntu.com/page/4">4</a>     </div>
+</div>
+
+<div class="col-md-4 col-md-push-1 sidebar">
+    <ul class="well">
+            <h4>标签</h4>
+    <ul class="list-unstyled">
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/emlog" title="-1 篇文章">emlog</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/plugin" title="-1 篇文章">plugin</a></span>
+                    <span style="font-size:16pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/%E6%8F%92%E4%BB%B6" title="0 篇文章">插件</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/spss" title="-1 篇文章">spss</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/%E7%BB%9F%E8%AE%A1" title="-1 篇文章">统计</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/MyEclipse" title="-1 篇文章">MyEclipse</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/jQuery" title="-1 篇文章">jQuery</a></span>
+                    <span style="font-size:22pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/nodejs" title="1 篇文章">nodejs</a></span>
+                    <span style="font-size:22pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/python" title="1 篇文章">python</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/redis" title="-1 篇文章">redis</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/mysql" title="-1 篇文章">mysql</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/SEO" title="-1 篇文章">SEO</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/BootstrapValidator+datetimepicker" title="-1 篇文章">BootstrapValidator datetimepicker</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/kongfu" title="-1 篇文章">kongfu</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/python" title="-1 篇文章">python</a></span>
+                    <span style="font-size:10pt; line-height:30px;">
+            <a href="http://www.liangcuntu.com/tag/linux" title="-1 篇文章">linux</a></span>
+            </ul>
+    <h4>日历</h4>
+    <ul class="list-unstyled">
+        <div id="calendar"></div>
+        <script>sendinfo('http://www.liangcuntu.com/?action=cal','calendar');</script>
+    </ul>
+    <h4>分类</h4>
+    <ul class="list-unstyled">
+                <li>
+        <a href="http://www.liangcuntu.com/sort/frontend">前端(1)</a>
+                    <ul>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/js">JavaScript(4)</a>
+            </li>
+                        </ul>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/backend">后端(0)</a>
+                    <ul>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/java">Java(0)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/php">PHP(4)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/python">Python(4)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/nodejs">NodeJS(2)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/go">Golang(0)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/android">Android(1)</a>
+            </li>
+                        <li>
+                <a href="http://www.liangcuntu.com/sort/ev3">EV3(2)</a>
+            </li>
+                        </ul>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/linux">Linux(5)</a>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/med">中医(2)</a>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/tools">工具(4)</a>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/other">八卦(2)</a>
+                </li>
+                <li>
+        <a href="http://www.liangcuntu.com/sort/life">生活(1)</a>
+                </li>
+            </ul>
+    <h4>存档</h4>
+    <ul class="list-unstyled">
+        <li><a href="http://www.liangcuntu.com/record/201607">2016年7月(1)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201606">2016年6月(7)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201605">2016年5月(11)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201604">2016年4月(2)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201603">2016年3月(7)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201501">2015年1月(3)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201411">2014年11月(1)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201308">2013年8月(1)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201106">2011年6月(1)</a></li>
+        <li><a href="http://www.liangcuntu.com/record/201011">2010年11月(1)</a></li>
+        </ul>
+    <h4>链接</h4>
+    <ul class="list-unstyled">
+                <li><a href="http://blog.sina.com.cn/fengxuting" title="最早开始写博客的地方" target="_blank">两寸土的博客（新浪）</a></li>
+                <li><a href="http://blog.csdn.net/fffy2366" title="IT相关技术分享" target="_blank">两寸土的博客（csdn）</a></li>
+                <li><a href="http://ss.liangcuntu.com/" title="" target="_blank">shadowscoks账号</a></li>
+            </ul>
+    <h4>搜索</h4>
+    <ul class="list-unstyled">
+        <form name="keyform" method="get" action="http://www.liangcuntu.com/index.php">
+        <input name="keyword" class="search" type="text" />
+        </form>
+    </ul>
+    <li>
+    <h4>订阅号</h4>
+    <ul class="list-unstyled">
+        <img src="/content/templates/default/images/qrcode_for_gh_1f2c90bfa6d4_258.jpg"/>    </ul>
+    <h4>最新文章</h4>
+    <ul class="list-unstyled">
+                <li><a href="http://www.liangcuntu.com/life_beijing_stayed_in_place">北漂这几年住过的地方</a></li>
+                <li><a href="http://www.liangcuntu.com/linux_centos7_sftp">centos7下配置sftp且限制用户访问目录</a></li>
+                <li><a href="http://www.liangcuntu.com/kongfu_rank">中国功夫巨星真实战力排名，第一名居然是他！</a></li>
+                <li><a href="http://www.liangcuntu.com/python_lambda">python入门之lambda表达式</a></li>
+                <li><a href="http://www.liangcuntu.com/nodejs_plupload">nodejs+plupload 多文件拖拽上传</a></li>
+            </ul>
+    <h4>热门文章</h4>
+    <ul class="list-unstyled">
+                <li><a href="http://www.liangcuntu.com/post/2">centos6.5下安装nginx1.6+php7+mysql5.1+emlog6</a></li>
+                <li><a href="http://www.liangcuntu.com/post/5">乐高EV3机器人编程入门（持续更新...）</a></li>
+                <li><a href="http://www.liangcuntu.com/post/10">emlog5插件开发指南</a></li>
+                <li><a href="http://www.liangcuntu.com/post/7">Python 模拟post请求接口并解析json数据</a></li>
+                <li><a href="http://www.liangcuntu.com/post/3">小儿遗尿症的家庭护理</a></li>
+            </ul>
+    </ul>
+</div>
+	</div>
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 footer-below">
+                <hr>
+                Powered by <a href="http://www.emlog.net" title="采用emlog系统">emlog</a> 
+                <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备15005726号-2</a>                             </div>
+        </div>
+    </div>
+</footer>
+<script>
+$(document).ready(function(){
+	dropdownOpen();//鼠标划过就展开子菜单，免得需要点击才能展开
+    prettyPrint();
+});
+function dropdownOpen() {
+	var $dropdownLi = $('li.dropdown');
+	$dropdownLi.mouseover(function() {
+		$(this).addClass('open');
+	}).mouseout(function() {
+		$(this).removeClass('open');
+	});
+}
+</script>
+</body>
+</html>
