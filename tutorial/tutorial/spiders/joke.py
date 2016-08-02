@@ -9,7 +9,7 @@ from scrapy.http import Request
 import os
 import urllib2
 
-class LiangcuntuSpider(scrapy.Spider):
+class JokeSpider(scrapy.Spider):
     name = "joke"
     allowed_domains = ["jokeji.cn"]
     start_urls = (
@@ -18,36 +18,28 @@ class LiangcuntuSpider(scrapy.Spider):
     domains = "http://www.jokeji.cn"
     def parse(self, response):
         filename = response.url.split("/")[-2] + '.html'
-        print("===========")
+        print("crwwl start:")
+        # 源码存成文件
         # with open(filename, 'wb') as f:
         #     f.write(response.body)
 
-        #selector = scrapy.Selector(response)
-        # sites = selector.xpath('//div[@class="list_title"]/text()').extract()
-        # print sites
-        # lis = response.xpath('//div[@class="list_title"]/ul/li').extract()
         lis = response.xpath('//div[@class="list_title"]/ul/li')
         # print lis
         '''
+        详情
         <li><b><a href="/jokehtml/fq/2016062923543272.htm" target="_blank">夫妻的幽默PK</a></b><span>浏览：8993次</span><i>2016-6-29</i></li>
         '''
         for index,li in enumerate(lis):
-            # print li.extract()
             title = li.xpath('b/a/text()').extract()[0]
-            # print li.xpath('b/a/@href').extract()
             #链接
             link = self.domains+li.xpath('b/a/@href').extract()[0]
-            # print li.xpath('b/a/@href').extract()
             #日期
             date = li.xpath('i/text()').extract()[0]
-            # print date
             #浏览量 分清encode和decode。str --> decode(c) --> unicode, unicode --> encode(c) --> str，其中编码类型c必须相同。
             viewcount = li.xpath('span/text()').extract()[0] ;
             viewcount = viewcount.encode('utf-8').replace("浏览：","").replace("次","")
             args = (index,title,link,date,viewcount)
 
-            # print "\n"
-            # print args[2]
             # print 'Li number %d title: %s , link: %s , date: %s,view count: %s' % args
             # 抓取内容
             yield Request(link, callback=self.parse_detail)

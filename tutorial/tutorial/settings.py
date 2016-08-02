@@ -64,7 +64,12 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 #ITEM_PIPELINES = {
 #    'tutorial.pipelines.SomePipeline': 300,
 #}
-ITEM_PIPELINES=['tutorial.pipelines.FjsenPipeline']
+# ITEM_PIPELINES=['tutorial.pipelines.FjsenPipeline']
+# ITEM_PIPELINES=['tutorial.pipelines.TutorialPipeline']
+ITEM_PIPELINES = {
+   'tutorial.pipelines.FjsenPipeline': 300,
+}
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 # NOTE: AutoThrottle will honour the standard settings for concurrency and delay

@@ -13,8 +13,11 @@ class TutorialPipeline(object):
     def process_item(self, item, spider):
         return item
 
-
 class FjsenPipeline(object):
+    def process_item(self, item, spider):
+        return item
+        
+class FjsenPipeline2(object):
     filename = './data.sqlite'
     def __init__(self):
         self.conn=None

@@ -1,0 +1,383 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"configs"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "# 从头开始搭建一个爬虫网站\n\n## 打算用python搭建一个网站，内容用scrapy抓取网络内容。\n\n## 用到的技术\n* python\n* scrapy\n* flask\n* sqlite\n\n## scrapy 爬内容\n1. scrapy 下载\nhttp://scrapy.org/download/\n2. 安装\n$ sudo python setup.py install\n3. pip在线安装\n$  pip install scrapy\nwindow安装报错：\nerror: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat). Get it from http://aka.ms/vcpython27\n解决：安装 [Micorsoft Visual C++ Compiler for Python 2.7](http://www.microsoft.com/en-us/download/details.aspx?id=44266)\n\n\n3. 创建项目\nmkdir crawl\nscrapy startproject tutorial\nscrapy genspider joke jokeji.cn\n\n\n\n\n\n",
+			"file": "python_scrapy_flask_web.md",
+			"file_size": 439,
+			"file_write_time": 131145840596157427,
+			"settings":
+			{
+				"buffer_size": 552,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1254,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tutorial/tutorial/spiders/joke_spider.py",
+			"settings":
+			{
+				"buffer_size": 4185,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": ": sd",
+		"selected_items":
+		[
+			[
+				": sd",
+				"Nodejs::Default File Settings"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":0",
+				":0 - BOF"
+			],
+			[
+				":$",
+				":$ - EOF"
+			],
+			[
+				"s",
+				"Sort Lines"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/python/crawl",
+		"/D/python/crawl/tests",
+		"/D/python/crawl/tutorial",
+		"/D/python/crawl/tutorial/tutorial",
+		"/D/python/crawl/tutorial/tutorial/spiders"
+	],
+	"file_history":
+	[
+		"/D/python/image-processing/batchnude.py",
+		"/D/python/image-processing/tests/python/polygon.py",
+		"/C/Users/liuwan/AppData/Roaming/Sublime Text 3/Packages/Nodejs/Nodejs.sublime-settings",
+		"/D/python/image-processing/api.py",
+		"/D/workspace/liuwan-biz/docs/deploy/deploy_20160727.md",
+		"/D/python/image-processing/nude.py",
+		"/D/python/image-processing/nudetest.py",
+		"/D/python/image-processing/bin/python/models/images.py",
+		"/D/python/image-processing/nudedetect.py",
+		"/D/python/image-processing/README.md",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/vastrek/20150706更新服务器信息.txt",
+		"/D/python/image-processing/bin/python/config/config_dev.py",
+		"/D/python/image-processing/batchface.py",
+		"/D/python/image-processing/bin/python/config/config_prod.py",
+		"/D/python/image-processing/bin/python/config/config.py",
+		"/D/python/image-processing/bin/python/config/__init__.py",
+		"/D/MathWorks MATLAB R2015b Win64/Matlab_R2015B x64_Full crack/MW_2015B_readme.txt",
+		"/D/MathWorks MATLAB R2015b Win64/Matlab_R2015B x64_Full crack/Matlab 2015b_info.txt",
+		"/D/shell/git/README.md",
+		"/D/shell/git/upwork.md",
+		"/D/workspace/liuwan-biz_mac/common/config/main-local.php",
+		"/D/phpStudy/Apache/conf/extra/vhosts/liuwanui.dev.conf",
+		"/D/phpStudy/Apache/conf/extra/vhosts/liuwan.dev.conf",
+		"/D/phpStudy/Apache/conf/extra/vhosts/localhost.conf",
+		"/C/Users/liuwan/Desktop/README.txt"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"delImg",
+			"def parse",
+			"parse",
+			"_classify_skin",
+			"ycbcr_classifier",
+			"_classify_skin",
+			"photo_pass",
+			"Images",
+			"192.168.60.61",
+			"Images",
+			"']\n",
+			"        modified:   ",
+			"\\",
+			"User",
+			"SendMessage",
+			"jdOAtiTIx6JiFzb6VSCVN9_USnZuOkT8QJ5Px0kYEi5fBelPn0Hg2zQhctW1spk67fGstdOwSrMPSrmd82lg2ukQnUsjdErcqur",
+			"192.168.60.7",
+			"/private/var/log/apache2/",
+			"/Users/fengxuting/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"/",
+			"D:/phpStudy/Apache/logs/",
+			"D:/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "python_scrapy_flask_web.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								464
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								646,
+								610
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 335.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "tutorial/tutorial/spiders/joke_spider.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								473
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 142.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "crawl.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 263.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
