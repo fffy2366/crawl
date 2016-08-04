@@ -120,11 +120,19 @@ $ scrapy crawl joke
 $ easy_install virtualenv
 $ cd /dD:\python
 $ virtualenv venv
-#激活
+#windows下激活
 $ venv\scripts\activate
 #安装
 $ pip install Flask
 ```
-
+2. 运行
+```
+$ python hello.py
+```
+3. 安装bootstrap
+[Flask-Bootstrap](http://pythonhosted.org/Flask-Bootstrap/)
+```
+$ bower install bootstrap
+```
 ## 代码
 code at github:https://github.com/fffy2366/crawl
