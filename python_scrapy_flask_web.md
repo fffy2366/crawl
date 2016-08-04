@@ -9,6 +9,7 @@
 * scrapy
 * flask
 * sqlite
+* mysql
 * bootstrap
 
 ## scrapy 爬内容
@@ -67,11 +68,63 @@ exceptions.ImportError: No module named win32api
 解决：
 pip install pypiwin32
 
-6.Todo :
+6. Todo :
+- [x] 列表详情√
 - [x] 抓取图片到本地√
-- [ ] 数据入库
-- [ ] 去重
+- [x] 遍历所有列表页√
+- [x] 数据入库
 - [ ] 搭建flask
+- [ ] 定时程序抓取内容
 
+7. 创建数据库
+```sql
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`category_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `joke` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `content` text,
+  `view_count` int(11) DEFAULT NULL COMMENT '浏览量',
+  `link` varchar(255) DEFAULT NULL COMMENT '抓取链接',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+```
+
+8. 编写分类和内容入库程序，如下：
+
+crawl/tutorial/tutorial/models/mysql.py
+crawl/tutorial/tutorial/models/category.py
+crawl/tutorial/tutorial/models/joke.py
+
+```
+$ scrapy crawl joke
+```
+总共抓取11215条数据
+
+## flask搭建
+[flask文档](http://docs.jinkan.org/docs/flask/)
+1. 安装
+```
+$ easy_install virtualenv
+$ cd /dD:\python
+$ virtualenv venv
+#激活
+$ venv\scripts\activate
+#安装
+$ pip install Flask
+```
+
+## 代码
 code at github:https://github.com/fffy2366/crawl

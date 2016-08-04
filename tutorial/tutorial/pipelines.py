@@ -8,16 +8,39 @@ from os import path
 from scrapy import signals
 from scrapy.xlib.pydispatch import dispatcher
 import sqlite3
+from models.category import Category
+from models.joke import Joke
+import datetime
 
 class TutorialPipeline(object):
     def process_item(self, item, spider):
         return item
 
-class FjsenPipeline(object):
+class JokePipeline(object):
     def process_item(self, item, spider):
+        # print item
+        category = item['category'] 
+        title = item['title'] 
+        content = item['content'] 
+        view_count = item['view_count'] 
+        link = item['link'] 
+
+        created_at = item['created_at'] 
+        updated_at = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #Todo: 保存分类和内容
+        c = Category()
+        # 查找分类是否存在，不存在则插入
+        categoryModel = c.findByTitle(item['category'])
+        if(categoryModel):
+            category_id = categoryModel[0]["category_id"]
+        else:
+            category_id = c.insert({'title':category,'created_at':updated_at,'updated_at':updated_at})
+
+        j = Joke()
+        j.insert({'title':title,'category_id':category_id,'content':''.join(content),'link':link,'view_count':int(view_count),'created_at':created_at+" 00:00:00",'updated_at':updated_at})
         return item
         
-class FjsenPipeline2(object):
+class FjsenPipeline(object):
     filename = './data.sqlite'
     def __init__(self):
         self.conn=None

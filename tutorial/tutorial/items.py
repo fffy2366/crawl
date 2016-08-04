@@ -22,9 +22,12 @@ class FjsenItem(scrapy.Item):
     addtime=scrapy.Field()
 
 class JokeItem(scrapy.Item):
+    category=scrapy.Field()
     title=scrapy.Field()
     link=scrapy.Field()
-    addtime=scrapy.Field()
+    content=scrapy.Field()
+    view_count=scrapy.Field()
+    created_at=scrapy.Field()
 
 class CnbetaItem(scrapy.Item):
     title=scrapy.Field()

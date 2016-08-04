@@ -8,7 +8,13 @@ import re
 from scrapy.http import Request
 import os
 import urllib2
-
+from tutorial.items import JokeItem
+'''
+http://www.jokeji.cn/list.htm
+http://www.jokeji.cn/list_2.htm
+...
+http://www.jokeji.cn/list_535.htm
+'''
 class JokeSpider(scrapy.Spider):
     name = "joke"
     allowed_domains = ["jokeji.cn"]
@@ -22,13 +28,20 @@ class JokeSpider(scrapy.Spider):
         # 源码存成文件
         # with open(filename, 'wb') as f:
         #     f.write(response.body)
+        for i in range(535,0,-1):
+            link = "http://www.jokeji.cn/list_"+str(i)+".htm"
+            #http://doc.scrapy.org/en/latest/topics/request-response.html#topics-request-response-ref-request-callback-arguments
+            yield Request(link, callback=self.parse_list)    
 
+    # 列表页
+    def parse_list(self,response):
         lis = response.xpath('//div[@class="list_title"]/ul/li')
         # print lis
         '''
         详情
         <li><b><a href="/jokehtml/fq/2016062923543272.htm" target="_blank">夫妻的幽默PK</a></b><span>浏览：8993次</span><i>2016-6-29</i></li>
         '''
+        lis.reverse()
         for index,li in enumerate(lis):
             title = li.xpath('b/a/text()').extract()[0]
             #链接
@@ -39,25 +52,45 @@ class JokeSpider(scrapy.Spider):
             viewcount = li.xpath('span/text()').extract()[0] ;
             viewcount = viewcount.encode('utf-8').replace("浏览：","").replace("次","")
             args = (index,title,link,date,viewcount)
-
+            
+            request = scrapy.Request(link,
+                             callback=self.parse_detail)
+            request.meta['title'] = title
+            request.meta['date'] = date
+            request.meta['view_count'] = viewcount
+            yield request
             # print 'Li number %d title: %s , link: %s , date: %s,view count: %s' % args
             # 抓取内容
-            yield Request(link, callback=self.parse_detail)
+            # yield Request(link, callback=self.parse_detail)
             # if link == 'http://www.jokeji.cn/jokehtml/bxnn/2016070414034214.htm':
             #     yield Request(link, callback=self.parse_detail)
+        
 
-
+    #详情页
     def parse_detail(self,response):
         div_left_up = response.xpath('//div[@class="left_up"]')
+        # title = div_left_up.xpath('h1/a/text()').extract()[2]
+        title = response.meta['title']
         category = div_left_up.xpath('h1/a/text()').extract()[1]
         content = div_left_up.xpath('ul/span[2]/p').extract()
+        link = response.url
         img = div_left_up.xpath('ul/span[2]/p/img/@src').extract()
-        print("-----"+category)
-        print("".join(content))
-        print("-----"+img[0] if img else "")
+        # print("title:"+title)
+        # print("category----->:"+category)
+        # print("link----->:"+link)
+        # print("content:".join(content))
+        # print("-----"+img[0] if img else "")
         if img:
             if not img[0].find("http") == -1:
                 self.download_img(img[0])
+        item = JokeItem()
+        item['title'] = title
+        item['category'] = category
+        item['content'] = content
+        item['link'] = response.url
+        item['view_count'] = response.meta['view_count']
+        item['created_at'] = response.meta['date']
+        return item
 
     # 根据链接获取图片名称、路径
     def get_img_name(self,src):
