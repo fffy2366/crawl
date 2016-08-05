@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}两寸土笑话集{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">   
+	<h3 class="text-center">两寸土笑话集</h3>
+	<div class="list-group">
+	{% for j in jokes %}
+		<a target="_blank" href="/detail/{{j['id']}}" class="list-group-item">
+			<span class="list-group-item-text">{{j['title']}}</span>
+			<span>[{{j['created_at'].replace(' 00:00:00','')}}]</span>
+			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+		</a>
+	{% endfor %}
+	</div> 
+
+
+	{% import "blocks.html" as blocks %}
+	{{blocks.pager('/?query='+query, p.total, p.limit, p.page)}}
+
+</div>
+{% endblock %}

@@ -75,6 +75,7 @@ pip install pypiwin32
 - [x] 数据入库
 - [ ] 搭建flask
 - [ ] 定时程序抓取内容
+- [ ] 部署上线
 
 7. 创建数据库
 ```sql
@@ -113,6 +114,8 @@ $ scrapy crawl joke
 ```
 总共抓取11215条数据
 
+------
+
 ## flask搭建
 [flask文档](http://docs.jinkan.org/docs/flask/)
 1. 安装
@@ -120,13 +123,40 @@ $ scrapy crawl joke
 $ easy_install virtualenv
 $ cd /dD:\python
 $ virtualenv venv
-#激活
+#windows下激活
 $ venv\scripts\activate
 #安装
 $ pip install Flask
 ```
-2. 编写列表和详情页
+2. 运行
+```
+$ python hello.py
+```
 
+3. 安装bootstrap
+[Flask-Bootstrap](http://pythonhosted.org/Flask-Bootstrap/)
+
+```
+$ bower install bootstrap
+$ pip install flask-bootstrap
+
+
+```
+
+4. 编写列表和详情页
+```
+hello.py
+templates/blocks.html
+templates/detail.html
+templates/hello.html
+tutorial/tutorial/models/mysql.py
+tutorial/tutorial/models/joke.py
+tutorial/tutorial/models/category.py
+```
+以上是主要列表和详情的主要文件，至此大功告成！剩下的就是一些细节的修修改改了！
+
+## 问题：
+发现抓取的内容有一千多条为空，查看页面源代码是内容不是p标签所致，待处理。
 
 
 ## 代码

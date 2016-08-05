@@ -7,6 +7,6 @@
 {% endif %}
 
 
-分页
+
 {% import "blocks.html" as blocks %}
 {{blocks.pager('/list?query='+query, p.total, p.limit, p.page)}}

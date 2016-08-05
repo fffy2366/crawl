@@ -50,13 +50,17 @@ class MySQL:
 
     def fetchAll(self):
         result = self.cur.fetchall()
+        # print("result-len:")
+        # print(len(result))
         desc = self.cur.description
         d = []
         for inv in result:
             _d = {}
             for i in range(0, len(inv)):
                 _d[desc[i][0]] = str(inv[i])
-                d.append(_d)
+            d.append(_d)
+        # print("d-len:")
+        # print(len(d))
         return d
 
     def insert(self, table_name, data):
