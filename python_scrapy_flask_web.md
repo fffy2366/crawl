@@ -155,9 +155,49 @@ tutorial/tutorial/models/category.py
 ```
 以上是主要列表和详情的主要文件，至此大功告成！剩下的就是一些细节的修修改改了！
 
+
 ## 问题：
 发现抓取的内容有一千多条为空，查看页面源代码是内容不是p标签所致，待处理。
 
 
+## 部署到centos
+1. 克隆代码
+```
+$ git clone git@github.com:fffy2366/crawl.git
+```
+2. 安装前面python相关
+2.1 [Centos 6.4 python 2.6 升级到 2.7](http://blog.csdn.net/jcjc918/article/details/11022345)
+```
+$ cd /opt/soft/
+$ ll
+$ wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2  
+$ tar -jxvf Python-2.7.3.tar.bz2  
+$ cd Python-2.7.3
+$ ./configure
+$ make all
+$ make install 
+$ make clean
+$ make distclean 
+$ /usr/local/bin/python2.7 -V  
+$ python -V
+$ mv /usr/bin/python /usr/bin/python2.6.6  
+$ ln -s /usr/local/bin/python2.7 /usr/bin/python  
+$ python -V
+$ vi /usr/bin/yum 
+```
+2.2 安装pip
+```
+$ wget https://bootstrap.pypa.io/get-pip.py --no-check-certificate
+$ python get-pip.py
+#以上失败
+$ yum install python-pip
+```
+
+
+
 ## 代码
 code at github:https://github.com/fffy2366/crawl
+
+## 小结
+
+这只是爬虫入门、python web入门的一个小例子，可以通过它来学习python知识，学习基本的爬虫知识，当你想学习他们并还在查询学习方法的时候，不妨从头开始动手做一个类似的例子。另外做爬虫站点并不是很光荣的事情，有时候会被封IP，有时候会被告侵权，所以大家自己权衡吧。不管如何，只要能把这个程序跑一遍相信你会跟我一样有所收获。
