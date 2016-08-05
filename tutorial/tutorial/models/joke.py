@@ -38,6 +38,8 @@ class Joke:
         tbname = 'joke'
         n.update(tbname, { 'title': title}, "content='"+content+"'")
         n.commit()
+    def list(self,page, limit, query):
+        return [],10
 
 if __name__ == '__main__':
     j = Joke()

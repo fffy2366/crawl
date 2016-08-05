@@ -125,6 +125,9 @@ $ venv\scripts\activate
 #安装
 $ pip install Flask
 ```
+2. 编写列表和详情页
+
+
 
 ## 代码
 code at github:https://github.com/fffy2366/crawl
