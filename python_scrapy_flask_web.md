@@ -291,7 +291,63 @@ $ pip install flask-bootstrap
 ```
 $ pip install uwsgi
 
+#uwsgiconfig.ini
+[uwsgi]
+#启动程序时所使用的地址和端口，通常在本地运行flask项目，
+#地址和端口是127.0.0.1:5000,
+#不过在服务器上是通过uwsgi设置端口，通过uwsgi来启动项目，
+#也就是说启动了uwsgi，也就启动了项目。
+socket = 127.0.0.1:8001
+#项目目录
+chdir = /opt/www/crawl/
+#flask程序的启动文件，通常在本地是通过运行
+#python manage.py runserver 来启动项目的
+wsgi-file = hello.py
 
+#程序内启用的application变量名
+callable = app
+#处理器个数
+processes = 1
+#线程个数
+threads = 2
+#获取uwsgi统计信息的服务地址
+stats = 127.0.0.1:9191
+
+#nginx
+server {
+        #默认的web访问端口
+        listen       80;         
+        #你的公网ip
+        server_name  joke.liangcuntu.com;     
+        #charset koi8-r;
+        #服务器接收的请求日志，
+        #需要在项目文件夹下创建
+        #logs文件夹，下同。
+        access_log  /opt/www/crawl/logs/access.log;    
+        #错误日志
+        error_log  /opt/www/crawl/logs/error.log;         
+
+        location / {
+            #这里是导入的uwsgi配置
+            include   uwsgi_params;     
+            
+            #需要和uwsgi的配置文件里socket项的地址
+            #相同,否则无法让uwsgi接收到请求。
+            uwsgi_pass    127.0.0.1:8001;   
+            
+            #python的位置(虚拟环境下)
+            uwsgi_param UWSGI_PYHOME /opt/python/venv;   
+            
+            #项目根目录
+            uwsgi_param UWSGI_CHDIR  /opt/www/crawl/;     
+
+            #启动项目的主程序(在本地上运行
+            #这个主程序可以在flask内置的
+            #服务器上访问你的项目)
+            uwsgi_param UWSGI_SCRIPT manage:app;     
+
+        }
+    }
 ```
 
 ## 代码
