@@ -192,8 +192,107 @@ $ python get-pip.py
 #以上失败
 $ yum install python-pip
 ```
+2.3 安装scrapy
+```
+$ pip install scrapy
+#抱错：ImportError: No module named pkg_resources
+#解决：
+$ wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+##仍然抱错,卸载python-pip，重新下载安装
+$ yum remove python-pip
+$ wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gz
+
+#注意：wget获取https的时候要加上：--no-check-certificate
+
+$ tar zvxf 1.5.5.tar.gz    #解压文件
+$ cd pip-1.5.5/
+$ python setup.py install
+#OK，这样就安装好pip了，
+
+#下面来安装 requests吧。
+
+$ pip install requests
+$ /usr/local/bin/pip install scrapy
+$ ln -s /usr/local/bin/pip /usr/bin/pip
+$ pip install scrapy
+$ pip install twisted
+$ pip install crpytography
+#以上仍然抱错
+$ pip install --upgrade pip
+$ pip install scrapy
+#ok,成功
+
+```
+
+2.4 安装flask
+
+```
+$ easy_install virtualenv
+$ cd /dD:\python
+$ virtualenv venv
+#激活
+$ .venv\bin\activate
+#安装
+$ pip install Flask
+```
+
+2.5 部署mysql 安装python相关模块
+```
+$mysql -uroot -p
+
+create database joke ;
+use joke
+#执行前面的sql
+
+$ grant all privileges on joke.* to joke@localhost identified by 'db****';
+
+#修改数据库连接
+$ vim /crawl/tutorial/tutorial/models/mysql.py
+#安装sqlite
+$ yum install gcc
+$ pip install pysqlite
+# 以上抱错，执行下面
+$ yum install sqlite-devel
+$ wget https://pypi.python.org/packages/cc/a4/023ee9dba54b3cf0c5a4d0fb2f1ad80332ef23549dd4b551a9f2cbe88786/pysqlite-2.8.2.tar.gz
+$ tar zxvf pysqlite-2.8.2.tar.gz 
+$ cd pysqlite-2.8.2
+$ python setup.py install
+# 继续抓取
+$ scrapy crawl joke
+
+#解决没有sqlite3模块的问题
+#curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+# the following to ~/.bash_profile:
+export PATH="/root/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+$ pyenv install 2.7.9
+# 上面的方法下载没反应 ，所以重复步骤2.1 ，重新编译python,搞定
+#Install the sqlite-devel package:
+
+$ yum install sqlite-devel -y
+#Recompile python from the source:
+$ ./configure
+$ make
+$ make altinstall
+
+# 安装mysqldb模块
+$ yum install MySQL-python -y
+# 上面安装不生效，执行下面的可以了
+$ easy_install MySQL-python
 
 
+$ pip install Flask
+$ pip install flask-bootstrap
+```
+
+2.6 [CentOS 下用 Nginx 和 uwsgi 部署 flask 项目](https://segmentfault.com/a/1190000004294634)
+```
+$ pip install uwsgi
+
+
+```
 
 ## 代码
 code at github:https://github.com/fffy2366/crawl
