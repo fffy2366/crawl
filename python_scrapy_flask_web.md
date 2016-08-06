@@ -72,10 +72,10 @@ pip install pypiwin32
 - [x] 列表详情√
 - [x] 抓取图片到本地√
 - [x] 遍历所有列表页√
-- [x] 数据入库
-- [ ] 搭建flask
+- [x] 数据入库√
+- [x] 搭建flask√
 - [ ] 定时程序抓取内容
-- [ ] 部署上线
+- [x] 部署上线√
 
 7. 创建数据库
 ```sql
@@ -292,6 +292,7 @@ $ pip install flask-bootstrap
 $ pip install uwsgi
 
 #uwsgiconfig.ini
+
 [uwsgi]
 #启动程序时所使用的地址和端口，通常在本地运行flask项目，
 #地址和端口是127.0.0.1:5000,
@@ -313,7 +314,14 @@ threads = 2
 #获取uwsgi统计信息的服务地址
 stats = 127.0.0.1:9191
 
+# 启动uwsgi
+$ uwsgi uwsgiconfig.ini
+# 查看进程
+ps aux|grep uwsgi
+
 #nginx
+$ vim /opt/nginx/conf/vhosts/joke.liangcuntu.com.conf
+
 server {
         #默认的web访问端口
         listen       80;         
@@ -348,11 +356,22 @@ server {
 
         }
     }
+    
+# 检查nginx配置
+/opt/nginx/sbin/nginx -t
+# 重启nginx
+/opt/nginx/sbin/nginx -s reload
 ```
 
+2.7 解析个域名访问吧
+http://joke.liangcuntu.com/
+
+
+
 ## 代码
-code at github:https://github.com/fffy2366/crawl
+[code at github](https://github.com/fffy2366/crawl)
 
 ## 小结
 
 这只是爬虫入门、python web入门的一个小例子，可以通过它来学习python知识，学习基本的爬虫知识，当你想学习他们并还在查询学习方法的时候，不妨从头开始动手做一个类似的例子。另外做爬虫站点并不是很光荣的事情，有时候会被封IP，有时候会被告侵权，所以大家自己权衡吧。不管如何，只要能把这个程序跑一遍相信你会跟我一样有所收获。
+

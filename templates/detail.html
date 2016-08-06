@@ -1,5 +1,9 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}两寸土笑话集{% endblock %}
+{% block head %}
+{{super()}}
+{% include 'baidu_tongji.html' %}
+{% endblock %}
 
 {% block navbar %}
 <div class="navbar navbar-fixed-top">
