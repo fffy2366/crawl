@@ -18,6 +18,18 @@ var _hmt = _hmt || [];
 </script>
 
 ```
+## Flask-boostrap 加载本地资源
+
+[Flask-Bootstrap Configuration](https://pythonhosted.org/Flask-Bootstrap/configuration.html)
+```
+$ vim hello.py
+
+app = Flask(__name__)
+app.config['BOOTSTRAP_SERVE_LOCAL'] = True
+Bootstrap(app)
+app.config['BOOTSTRAP_SERVE_LOCAL'] = True
+
+```
 
 ## 定时抓取
 ## 添加分类
