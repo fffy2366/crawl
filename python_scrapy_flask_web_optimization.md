@@ -32,6 +32,26 @@ app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 ```
 
 ## 定时抓取
+1. 修改抓取和数据保存程序
+tutorial/tutorial/spiders/joke.py
+tutorial/tutorial/models/joke.py
+2. 添加定时脚本
+```
+$ vim bin/crawl.sh
+
+#!/usr/bin/env bash
+#sh bin/crawl.sh
+#chmod -R 755 /opt/www/crawl/bin/crawl.sh
+#0 15 * * *  /opt/www/crawl/bin/crawl.sh >> /tmp/crawl.log 2>&1
+# crontab -e
+basepath=$(cd `dirname $0`; pwd)
+project_dir=$(dirname $basepath)
+cd $project_dir"/tutorial"
+echo "start"
+scrapy crawl joke
+echo "finish"
+```
+
 ## 添加分类
 ## 添加搜索
 ## 添加面包屑
