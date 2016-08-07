@@ -48,6 +48,8 @@ basepath=$(cd `dirname $0`; pwd)
 project_dir=$(dirname $basepath)
 cd $project_dir"/tutorial"
 echo "start"
+. /etc/profile
+. /root/.bash_profile
 scrapy crawl joke
 echo "finish"
 ```
