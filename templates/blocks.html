@@ -1,5 +1,5 @@
 
-{% macro pager(_uri, total, limit, curr_page, left=3, right=7) -%}
+{% macro pager(_uri, total, limit, curr_page, left=3, right=5) -%}
 {% if '?' in _uri %}
 {% set uri = _uri + '&' %}
 {% else %}

@@ -9,5 +9,5 @@ cd $project_dir"/tutorial"
 echo "start"
 . /etc/profile
 . /root/.bash_profile
-scrapy crawl joke
+/usr/local/bin/scrapy crawl joke
 echo "finish"
