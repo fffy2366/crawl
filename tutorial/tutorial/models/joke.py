@@ -77,7 +77,7 @@ class Joke:
         n = MySQL()
         n.selectDb('joke')
         tbname = 'joke'
-        sqlCount = "SELECT count(id) c from %s" %(tbname) ;
+        sqlCount = "SELECT count(id) c from %s where content!=''" %(tbname) ;
         n.query(sqlCount)
         totalCount = n.fetchAll()
         return totalCount[0]['c']
