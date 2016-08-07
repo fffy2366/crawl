@@ -67,7 +67,7 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 # ITEM_PIPELINES=['tutorial.pipelines.FjsenPipeline']
 # ITEM_PIPELINES=['tutorial.pipelines.TutorialPipeline']
 ITEM_PIPELINES = {
-   'tutorial.pipelines.FjsenPipeline': 300,
+   # 'tutorial.pipelines.FjsenPipeline': 300,
    'tutorial.pipelines.JokePipeline': 500,
 }
 

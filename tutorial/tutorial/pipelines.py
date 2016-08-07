@@ -37,7 +37,11 @@ class JokePipeline(object):
             category_id = c.insert({'title':category,'created_at':updated_at,'updated_at':updated_at})
 
         j = Joke()
-        j.insert({'title':title,'category_id':category_id,'content':''.join(content),'link':link,'view_count':int(view_count),'created_at':created_at+" 00:00:00",'updated_at':updated_at})
+        #根据标题和日期查找该数据是否存在，不存在才保存
+        # print "len--------->:"
+        # print len(j.findByTitleDate(title,created_at+" 00:00:00"))
+        if(len(j.findByTitleDate(title,created_at+" 00:00:00"))<1):
+            j.insert({'title':title,'category_id':category_id,'content':''.join(content),'link':link,'view_count':int(view_count),'created_at':created_at+" 00:00:00",'updated_at':updated_at})
         return item
         
 class FjsenPipeline(object):

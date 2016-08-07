@@ -23,6 +23,13 @@ class Joke:
         tbname = 'joke'
         n.query("select name from %s where title = %s" %(tbname,v))
         return n.fetchAll()
+    def findByTitleDate(self,title,created_at):
+        n = MySQL()
+
+        n.selectDb('joke')
+        tbname = 'joke'
+        n.query("select id from %s where title = '%s' and created_at= '%s'" %(tbname,title,created_at))
+        return n.fetchAll()
     def findById(self,v):
         n = MySQL()
 
@@ -52,7 +59,7 @@ class Joke:
         tbname = 'joke'
         print "currRow:"+str(currRow)
         sqlCount = "SELECT FOUND_ROWS() c" ;
-        sql = "select j.id, j.title,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 order by j.created_at desc limit %s,%s" %(tbname,currRow,limit)
+        sql = "select j.id, j.title,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' order by j.created_at desc limit %s,%s" %(tbname,currRow,limit)
         print sql
         n.query(sql)
         ret = n.fetchAll()
@@ -77,4 +84,5 @@ class Joke:
 if __name__ == '__main__':
     j = Joke()
     # j.insert({'title':'test','category_id':'1','content':'乱码','created_at':datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
-    j.list(1,10,"")
+    # j.list(1,10,"")
+    print len(j.findByTitleDate('个个草包','2008-10-06 00:00:00'))

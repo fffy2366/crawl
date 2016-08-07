@@ -28,10 +28,16 @@ class JokeSpider(scrapy.Spider):
         # 源码存成文件
         # with open(filename, 'wb') as f:
         #     f.write(response.body)
+        '''
+        #抓取所有
         for i in range(535,0,-1):
             link = "http://www.jokeji.cn/list_"+str(i)+".htm"
             #http://doc.scrapy.org/en/latest/topics/request-response.html#topics-request-response-ref-request-callback-arguments
-            yield Request(link, callback=self.parse_list)    
+            yield Request(link, callback=self.parse_list)
+        '''
+        #定时抓取
+        yield Request(response.url, callback=self.parse_list)
+
 
     # 列表页
     def parse_list(self,response):
