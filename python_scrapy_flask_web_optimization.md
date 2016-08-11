@@ -53,6 +53,20 @@ echo "start"
 scrapy crawl joke
 echo "finish"
 ```
+## 修改图片和链接域名
+```shell 
+mkdir -p static/joke
+cd tutorial
+mv jokejimg ../static/joke
+mv upfilesnew ../static/joke
+mv UpFilesnew ../static/joke
+mv UpFiles ../static/joke
+```
+```sql
+update joke set content = replace(content,'http://gaoxiao.jokeji.cn','/static/joke') ;
+update joke set content = replace(content,'src="http://www.jokeji.cn','src="/static/joke') ;
+update joke set content = replace(content,'href="http://www.jokeji.cn','href="http://joke.liangcuntu.com') ;
+```
 
 ## 添加分类
 

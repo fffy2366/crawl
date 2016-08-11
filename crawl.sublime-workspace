@@ -19,7 +19,23 @@
 			"file": "python_scrapy_flask_web_optimization.md",
 			"settings":
 			{
-				"buffer_size": 1311,
+				"buffer_size": 1782,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/detail.html",
+			"settings":
+			{
+				"buffer_size": 693,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "templates/hello_static.html",
+			"settings":
+			{
+				"buffer_size": 10160,
 				"line_ending": "Windows"
 			}
 		}
@@ -96,7 +112,8 @@
 	},
 	"expanded_folders":
 	[
-		"/D/python/crawl"
+		"/D/python/crawl",
+		"/D/python/crawl/templates"
 	],
 	"file_history":
 	[
@@ -242,7 +259,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -251,15 +268,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1311,
+						"buffer_size": 1782,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1311,
-								1311
+								923,
+								923
 							]
 						],
 						"settings":
@@ -267,7 +284,65 @@
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 680.0,
+						"translation.y": 606.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/detail.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								343,
+								343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/hello_static.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1316,
+								1316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 44.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
