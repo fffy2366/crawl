@@ -77,3 +77,4 @@ update joke set content = replace(content,'href="http://www.jokeji.cn','href="ht
 
 ## 模板
 http://www.html5tricks.com/demo/jquery-bootstrap-dropdown-menu/index.html
+http://www.html5tricks.com/jquery-bootstrap-dropdown-menu.html
