@@ -74,3 +74,6 @@ update joke set content = replace(content,'href="http://www.jokeji.cn','href="ht
 ## 添加面包屑
 ## 添加阅读量
 ## 分类最新、热门
+
+## 模板
+http://www.html5tricks.com/demo/jquery-bootstrap-dropdown-menu/index.html
