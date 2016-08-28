@@ -50,11 +50,12 @@ cd $project_dir"/tutorial"
 echo "start"
 . /etc/profile
 . /root/.bash_profile
-scrapy crawl joke
+/usr/local/bin/scrapy crawl joke
 echo "finish"
 ```
 
 ## 添加分类
+
 ## 添加搜索
 ## 添加面包屑
 ## 添加阅读量
