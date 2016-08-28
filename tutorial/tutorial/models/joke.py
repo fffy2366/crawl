@@ -52,20 +52,31 @@ class Joke:
         tbname = 'joke'
         n.update(tbname, { 'title': title}, "content='"+content+"'")
         n.commit()
-    def list(self,page, limit, query):
+    def list(self,page, limit, cid):
         n = MySQL()
         currRow = (int(page)-1)*int(limit)
         n.selectDb('joke')
         tbname = 'joke'
         print "currRow:"+str(currRow)
-        sqlCount = "SELECT FOUND_ROWS() c" ;
-        sql = "select j.id, j.title,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' order by j.created_at desc limit %s,%s" %(tbname,currRow,limit)
+        conditions = (tbname,)
+        sqlCount = "SELECT FOUND_ROWS() c"
+        sql = "select j.id, j.title,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' "
+        print "cid:"+cid
+        if(cid):
+            sql += " AND j.category_id = %s"
+            conditions = conditions + (cid ,)
+        print "conditions:"+str(conditions)
+        conditions = conditions+(currRow,limit)
+        sql += " order by j.created_at desc limit %s,%s"
+        print "conditions:"+str(conditions)
+
+        sql = sql % conditions
         print sql
         n.query(sql)
         ret = n.fetchAll()
         n.query(sqlCount)
         # totalCount = n.fetchAll()
-        totalCount = self.findCount(query)
+        totalCount = self.findCount(cid)
         print "totalCount:"
         print totalCount
         print len(ret)
@@ -73,11 +84,16 @@ class Joke:
         # return ret,totalCount[0]['c']
         # return ret,10000
 
-    def findCount(sefl,query):
+    def findCount(sefl,cid):
         n = MySQL()
         n.selectDb('joke')
         tbname = 'joke'
-        sqlCount = "SELECT count(id) c from %s where content!=''" %(tbname) ;
+        conditions = (tbname,)
+        sqlCount = "SELECT count(id) c from %s where content!=''"
+        if(cid):
+            sqlCount += " AND category_id = %s"
+            conditions = conditions+(cid ,)
+        sqlCount = sqlCount % conditions
         n.query(sqlCount)
         totalCount = n.fetchAll()
         return totalCount[0]['c']

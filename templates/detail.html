@@ -1,24 +1,31 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}两寸土笑话集-{{joke['title']}}{% endblock %}
+
 {% block head %}
 {{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/main.css')}}">
 {% include 'baidu_tongji.html' %}
 {% endblock %}
 
 {% block navbar %}
-<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+<div class="weixin_logo">
 <img src="/static/images/logo.jpg" width='480'>
 </div>
-<div class="navbar navbar-fixed-top">
-  
-</div>
+{% include 'nav.html' %}
 {% endblock %}
 
 {% block content %}
+
 <div class="container">   
-	<h3 class="text-center">两寸土笑话集</h3>
+	<ol class="breadcrumb">
+		<li><a href="/">首页</a></li>
+		<li><a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a></li>
+		<li class="active">{{joke['title']}}</li>
+	</ol>
+	<!--<h3 class="text-center">两寸土笑话集</h3>
 	<a href="/">首页</a> -> <a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a> -> {{joke['title']}}
-	<span>[{{joke['created_at'].replace(' 00:00:00','')}}]</span>
+	<span>[{{joke['created_at'].replace(' 00:00:00','')}}]</span>-->
 	<div>
 		{{joke['content']|safe}}
 	</div> 

@@ -13,6 +13,8 @@ Bootstrap(app)
 def hello_world():
     # return 'Hello World!2'
     page = request.args.get('p', '1')
+    cid = request.args.get('cid', '')
+
     if not page:
         page = 1
     limit = request.args.get('limit', '10')
@@ -21,7 +23,7 @@ def hello_world():
 
     query = request.args.get('query', '')
     j = Joke()
-    jokes, total = j.list(page, limit, query)
+    jokes, total = j.list(page, limit, cid)
 
     pager = {'total': int(total), 'limit':int(limit), 'page': int(page)}
     print pager
@@ -32,6 +34,7 @@ def hello_world():
 def list(name=None):
 	# 分页链接会自动添加p这个参数，表示页码
     page = request.args.get('p', '1')
+    cid = request.args.get('cid', '')
     if not page:
         page = 1
     limit = request.args.get('limit', '100')
@@ -40,7 +43,9 @@ def list(name=None):
 
     query = request.args.get('query', '')
     j = Joke()
-    jokes, total = j.list(page, limit, query)
+    print "------------------"
+    print "cid:{0}".format(cid)
+    jokes, total = j.list(page, limit, cid)
     pager = {'total': int(total), 'limit':int(limit), 'curr_page': int(page)}
     # print jokes
     print pager

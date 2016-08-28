@@ -2,6 +2,8 @@
 {% block title %}两寸土笑话集{% endblock %}
 {% block head %}
 {{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/main.css')}}">
 {% include 'baidu_tongji.html' %}
 {% endblock %}
 
@@ -10,17 +12,19 @@
 <img src="/static/images/logo.jpg" width='480'>
 </div>
 
-<div class="navbar navbar-fixed-top">
-  
-</div>
+{% include 'nav.html' %}
+
 {% endblock %}
 
 {% block content %}
 <div class="container">   
-	<h3 class="text-center">两寸土笑话集</h3>
+	<ol class="breadcrumb">
+		<li><a href="/">首页</a></li>
+		<li><a href="/"></a></li>
+	</ol>
 	<div class="list-group">
 	{% for j in jokes %}
-		<a target="_blank" href="/detail/{{j['id']}}" class="list-group-item">
+		<a target="_self" href="/detail/{{j['id']}}" class="list-group-item">
 			<span class="list-group-item-text">{{j['title']}}</span>
 			<span>[{{j['created_at'].replace(' 00:00:00','')}}]</span>
 			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
