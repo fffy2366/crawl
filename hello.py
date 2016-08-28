@@ -51,6 +51,12 @@ def detail(id=None):
     j = Joke()
     detail = j.findById(id)
     return render_template('detail.html', joke=detail[0])
+
+@app.route('/baidu_verify_9cWPjuSrYu.html')
+def baidu_verify(id=None):
+    
+    return render_template('baidu_verify_9cWPjuSrYu.html')
+   
 if __name__ == '__main__':
 	app.debug = True
 	# app.run(host='0.0.0.0')

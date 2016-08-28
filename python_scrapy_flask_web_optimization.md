@@ -53,6 +53,20 @@ echo "start"
 /usr/local/bin/scrapy crawl joke
 echo "finish"
 ```
+## 修改图片和链接域名
+```shell 
+mkdir -p static/joke
+cd tutorial
+mv jokejimg ../static/joke
+mv upfilesnew ../static/joke
+mv UpFilesnew ../static/joke
+mv UpFiles ../static/joke
+```
+```sql
+update joke set content = replace(content,'http://gaoxiao.jokeji.cn','/static/joke') ;
+update joke set content = replace(content,'src="http://www.jokeji.cn','src="/static/joke') ;
+update joke set content = replace(content,'href="http://www.jokeji.cn','href="http://joke.liangcuntu.com') ;
+```
 
 ## 添加分类
 
@@ -60,3 +74,7 @@ echo "finish"
 ## 添加面包屑
 ## 添加阅读量
 ## 分类最新、热门
+
+## 模板
+http://www.html5tricks.com/demo/jquery-bootstrap-dropdown-menu/index.html
+http://www.html5tricks.com/jquery-bootstrap-dropdown-menu.html
