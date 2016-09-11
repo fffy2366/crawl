@@ -9,6 +9,10 @@ app = Flask(__name__)
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 Bootstrap(app)
 
+def my_render_template():
+    return render_template()
+
+
 @app.route('/')
 def hello_world():
     # return 'Hello World!2'
