@@ -62,13 +62,13 @@ def list(name=None):
     pager = {'total': int(total), 'limit':int(limit), 'curr_page': int(page)}
     # print jokes
     print pager
-    return render_template('list.html', name=name, jokes=jokes, query=query, p=pager)
+    return my_render_template('list.html', name=name, jokes=jokes, query=query, p=pager)
 @app.route('/detail/<id>')
 def detail(id=None):
     query = request.args.get('query', '')
     j = Joke()
     detail = j.findById(id)
-    return render_template('detail.html', joke=detail[0])
+    return my_render_template('detail.html', joke=detail[0])
 
 @app.route('/baidu_verify_9cWPjuSrYu.html')
 def baidu_verify(id=None):
