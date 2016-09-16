@@ -2,6 +2,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from tutorial.tutorial.models.category import Category
 from tutorial.tutorial.models.joke import Joke
 from flask_bootstrap import Bootstrap
 
@@ -9,8 +10,16 @@ app = Flask(__name__)
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 Bootstrap(app)
 
-def my_render_template():
-    return render_template()
+def my_render_template(template_name_or_list, **context):
+    context["test"] = "test"
+    context["host"] = "http://joke.liangcuntu.com"
+    # print context
+    #获取分类
+    cate = Category()
+    category = cate.findAll()
+    context['category'] = category
+
+    return render_template(template_name_or_list, **context)
 
 
 @app.route('/')
@@ -31,7 +40,7 @@ def hello_world():
 
     pager = {'total': int(total), 'limit':int(limit), 'page': int(page)}
     print pager
-    return render_template('hello.html', jokes=jokes, query=query, p=pager)
+    return my_render_template('hello.html', jokes=jokes, query=query, p=pager)
 
 @app.route('/list/')
 @app.route('/list/<name>')

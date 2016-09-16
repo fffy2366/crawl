@@ -24,7 +24,7 @@
 	</ol>
 	<div class="list-group">
 	{% for j in jokes %}
-		<a target="_self" href="http://joke.liangcuntu.com/detail/{{j['id']}}" class="list-group-item">
+		<a target="_self" href="{{host}}/detail/{{j['id']}}" class="list-group-item">
 			<span class="list-group-item-text">{{j['title']}}</span>
 			<span>[{{j['created_at'].replace(' 00:00:00','')}}]</span>
 			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -34,7 +34,7 @@
 
 
 	{% import "blocks.html" as blocks %}
-	{{blocks.pager('/?query='+query, p.total, p.limit, p.page)}}
+	{{blocks.pager(host+'/?query='+query, p.total, p.limit, p.page)}}
 
 </div>
 {% endblock %}

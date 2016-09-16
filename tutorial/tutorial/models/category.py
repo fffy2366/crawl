@@ -31,7 +31,7 @@ class Category:
         tbname = 'category'
         # n.query("select name from %s where updated_at <'2016-06-27 00:00:00'" %(tbname) )
         # n.query("select name from %s where is_face!=1 " %(tbname) )
-        n.query("select title from %s " %(tbname) )
+        n.query("select category_id,title from %s " %(tbname) )
         return n.fetchAll()
     def updateCategory(self,title,content):
         n = MySQL()
