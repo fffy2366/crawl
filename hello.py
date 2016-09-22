@@ -6,13 +6,23 @@ from tutorial.tutorial.models.category import Category
 from tutorial.tutorial.models.joke import Joke
 from flask_bootstrap import Bootstrap
 
+from config.config import Config
 app = Flask(__name__)
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
+conf = Config()
+if(Config.ENV=="dev"):
+    app.config.from_object('config.config.DevelopmentConfig')
+elif(Config.ENV=="testing"):
+    app.config.from_object('config.config.TestingConfig')
+elif(Config.ENV=="prod"):
+    app.config.from_object('config.config.ProductionConfig')
+
+
 Bootstrap(app)
 
 def my_render_template(template_name_or_list, **context):
     context["test"] = "test"
-    context["host"] = "http://joke.liangcuntu.com"
+    context["host"] = app.config["HOST"]
     # print context
     #获取分类
     cate = Category()

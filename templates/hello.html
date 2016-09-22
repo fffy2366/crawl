@@ -34,7 +34,7 @@
 
 
 	{% import "blocks.html" as blocks %}
-	{{blocks.pager(host+'/?query='+query, p.total, p.limit, p.page)}}
+	{{blocks.pager(host+'/', p.total, p.limit, p.page)}}
 
 </div>
 {% include 'footer.html' %}

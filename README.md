@@ -51,3 +51,27 @@ http://www.360doc.cn/article/972619_34106632.html
 ## Todo:抓取图片到本地√
 ## Todo:数据入库
 ## Todo:去重
+
+
+##文字转声音
+1. pyttsx
+https://github.com/parente/pyttsx
+
+- 安装
+```
+pip install pyttsx
+```
+http://stackoverflow.com/questions/15653145/using-google-text-to-speech-in-javascript
+2. google
+```javascript
+var audio = new Audio();
+audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World.';
+audio.play();
+```
+3. ResponsiveVoice
+[ResponsiveVoice.JS](http://responsivevoice.org/)
+4. 科大讯飞
+[科大讯飞和Tizen-TTS语音合成引擎说明](http://bbs.tizennet.com/thread-100426-1-1.html)
+
+5. 百度语音合成
+[语音合成服务](http://yuyin.baidu.com/tts)
