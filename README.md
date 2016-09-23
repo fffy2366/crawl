@@ -48,6 +48,9 @@ http://www.360doc.cn/article/972619_34106632.html
 [QQ 聊天机器人小薇发布](http://www.oschina.net/news/73874/qq-xiaov)
 [xiaov](https://github.com/b3log/xiaov)
 
+## flask
+[Jinja2中文文档](http://www.kancloud.cn/manual/jinja2/70468)
+
 ## Todo:抓取图片到本地√
 ## Todo:数据入库
 ## Todo:去重
