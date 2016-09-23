@@ -18,8 +18,8 @@
 
 
 
-                <li class="active"><a href="/">最新 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">最热</a></li>
+                <li {%if(menu=="latest")%}class="active"{%endif%}><a href="/">最新 <span class="sr-only">(current)</span></a></li>
+                <li {%if(menu=="hot")%}class="active"{%endif%}><a href="/hot">最热</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">分类 <span class="caret"></span></a>

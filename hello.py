@@ -31,10 +31,11 @@ def my_render_template(template_name_or_list, **context):
 
     return render_template(template_name_or_list, **context)
 
-
-@app.route('/')
-def hello_world():
-    # return 'Hello World!2'
+def home():
+    if(request.path=="/hot"):
+        menu = "hot"
+    else:
+        menu = "latest"
     page = request.args.get('p', '1')
     cid = request.args.get('cid', '')
 
@@ -46,11 +47,52 @@ def hello_world():
 
     query = request.args.get('query', '')
     j = Joke()
-    jokes, total = j.list(page, limit, cid)
+    jokes, total = j.list(page, limit, cid,menu)
+    cate = None
+    if(cid):
+        c = Category()
+        cate = c.findById(cid)
 
     pager = {'total': int(total), 'limit':int(limit), 'page': int(page)}
-    print pager
-    return my_render_template('hello.html', jokes=jokes, query=query, p=pager)
+    # print pager
+    app.logger.debug(request.path)
+    app.logger.debug("host:"+request.host)
+    ass = []
+    for a in request.args:
+        if(a=="p"):
+            continue
+        ass.append(a+"="+request.args.get(a))
+        app.logger.debug(a)
+        app.logger.debug(request.args.get(a))
+    args = "&".join(ass)
+    args = "?"+args if args else ""
+    return my_render_template('hello.html', jokes=jokes, query=query,path=request.path,args=args, p=pager,menu=menu,cate=cate)
+@app.route('/')
+def hello_world():
+    return home()
+
+@app.route('/hot')
+def hot():
+    return home()
+
+@app.route('/detail/<id>')
+def detail(id=None):
+    query = request.args.get('query', '')
+    j = Joke()
+    detail = j.findById(id)
+    #阅读量加1
+    j.addViewCount(id)
+    return my_render_template('detail.html', joke=detail[0])
+
+@app.route('/baidu_verify_9cWPjuSrYu.html')
+def baidu_verify(id=None):
+    
+    return render_template('baidu_verify_9cWPjuSrYu.html')
+
+
+
+
+
 
 @app.route('/list/')
 @app.route('/list/<name>')
@@ -73,18 +115,7 @@ def list(name=None):
     # print jokes
     print pager
     return my_render_template('list.html', name=name, jokes=jokes, query=query, p=pager)
-@app.route('/detail/<id>')
-def detail(id=None):
-    query = request.args.get('query', '')
-    j = Joke()
-    detail = j.findById(id)
-    return my_render_template('detail.html', joke=detail[0])
 
-@app.route('/baidu_verify_9cWPjuSrYu.html')
-def baidu_verify(id=None):
-    
-    return render_template('baidu_verify_9cWPjuSrYu.html')
-   
 if __name__ == '__main__':
 	app.debug = True
 	# app.run(host='0.0.0.0')

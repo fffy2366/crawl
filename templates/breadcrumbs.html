@@ -1,0 +1,22 @@
+<ol class="breadcrumb">
+		<li><a href="/">首页</a></li>
+		{% if(menu=="latest")%}
+		<li><a href="/">
+		最新</a>
+		</li>
+		{% if(cate)%}
+            <li><a href="/?cid={{cate[0]['category_id']}}">
+            {{cate[0]['title']}}</a>
+            </li>
+		{%endif%}
+		{% elif(menu=="hot")%}
+		<li><a href="/hot">
+		最热</a>
+		</li>
+		{% if(cate)%}
+            <li><a href="/hot?cid={{cate[0]['category_id']}}">
+            {{cate[0]['title']}}</a>
+            </li>
+		{%endif%}
+		{%endif%}
+	</ol>
