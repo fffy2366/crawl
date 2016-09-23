@@ -1,10 +1,22 @@
 .container{
-    padding:60px 0 ;
+    _padding-top: 60px;
+    _padding:60px 0 ;
 }
-
+.bs-joke-main{
+	padding-top: 60px;
+}
 .weixin_logo{
     margin:0 auto;
     width:0px;
     height:0px;
     overflow:hidden;
+}
+
+.bs-joke-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    color: #777;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
 }

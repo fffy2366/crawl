@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}两寸土笑话集{% endblock %}
+{% block title %}两寸土-笑话集{% endblock %}
 {% block head %}
 {{super()}}
 <link rel="stylesheet"
@@ -17,16 +17,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">   
-	<ol class="breadcrumb">
-		<li><a href="/">首页</a></li>
-		<li><a href="/"></a></li>
-	</ol>
+<div class="bs-joke-main container">   
+	{% include 'breadcrumbs.html' %}
+
 	<div class="list-group">
 	{% for j in jokes %}
 		<a target="_self" href="{{host}}/detail/{{j['id']}}" class="list-group-item">
 			<span class="list-group-item-text">{{j['title']}}</span>
+			{% if menu=="hot" %}
+			<span>({{j['view_count']}})</span>
+			{% elif(menu == "latest")%}
 			<span>[{{j['created_at'].replace(' 00:00:00','')}}]</span>
+			{% endif%}
 			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 		</a>
 	{% endfor %}
@@ -34,7 +36,9 @@
 
 
 	{% import "blocks.html" as blocks %}
-	{{blocks.pager(host+'/?query='+query, p.total, p.limit, p.page)}}
+	{{blocks.pager(host+path+args, p.total, p.limit, p.page)}}
 
 </div>
+{% include 'footer.html' %}
+
 {% endblock %}

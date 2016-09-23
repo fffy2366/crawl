@@ -17,6 +17,13 @@ class Category:
         ret = n.insert(tbname, d)
         n.commit()
         return ret
+    def findById(self,id):
+        n = MySQL()
+
+        n.selectDb('joke')
+        tbname = 'category'
+        n.query("select * from %s where category_id = '%s'" %(tbname,id))
+        return n.fetchAll()
     def findByTitle(self,v):
         n = MySQL()
 

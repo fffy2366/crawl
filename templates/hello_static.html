@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
     <style type="text/css">
         body { padding-top: 70px; }
     </style>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script type="text/javascript">
+        var audio = new Audio();
+        //audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World.';
+        //audio.play();
+
+    </script>
 </head>
 <body>
+<input onclick='responsiveVoice.speak("1.你好 2.我也好","Chinese Female");' type='button' value='🔊 Play' />
 
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -288,7 +297,12 @@
 
 </div>
 
+<footer class="bs-docs-footer" role="contentinfo">
+  <div class="container">
 
+    <p>Powered by frank 京ICP备15005726号-2</p>
+  </div>
+</footer>
 <script src="../static/js/jquery-2.1.1.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
 </body>

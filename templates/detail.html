@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}两寸土笑话集-{{joke['title']}}{% endblock %}
+{% block title %}两寸土-笑话集-{{joke['title']}}{% endblock %}
 
 {% block head %}
 {{super()}}
@@ -17,7 +17,7 @@
 
 {% block content %}
 
-<div class="container">   
+<div class="bs-joke-main container">   
 	<ol class="breadcrumb">
 		<li><a href="/">首页</a></li>
 		<li><a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a></li>
@@ -30,4 +30,6 @@
 		{{joke['content']|safe}}
 	</div> 
 </div>
+{% include 'footer.html' %}
+
 {% endblock %}

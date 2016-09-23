@@ -69,11 +69,19 @@ update joke set content = replace(content,'href="http://www.jokeji.cn','href="ht
 ```
 
 ## 添加分类
-
 ## 添加搜索
 ## 添加面包屑
 ## 添加阅读量
 ## 分类最新、热门
+## 百度语音读笑话
+
+TODO:
+添加分类页面
+最热排序 阅读量-
+共多少页位置
+听笑话
+
+
 
 ## 模板
 http://www.html5tricks.com/demo/jquery-bootstrap-dropdown-menu/index.html

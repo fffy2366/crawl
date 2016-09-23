@@ -52,7 +52,13 @@ class Joke:
         tbname = 'joke'
         n.update(tbname, { 'title': title}, "content='"+content+"'")
         n.commit()
-    def list(self,page, limit, cid):
+    def addViewCount(self,id):
+        n = MySQL()
+        n.selectDb('joke')
+        tbname = 'joke'
+        n.update(tbname, { 'view_count': "view_count+1"}, "id='"+id+"'")
+        n.commit()
+    def list(self,page, limit, cid,menu):
         n = MySQL()
         currRow = (int(page)-1)*int(limit)
         n.selectDb('joke')
@@ -60,14 +66,18 @@ class Joke:
         print "currRow:"+str(currRow)
         conditions = (tbname,)
         sqlCount = "SELECT FOUND_ROWS() c"
-        sql = "select j.id, j.title,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' "
+        sql = "select j.id, j.title,j.view_count,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' "
         print "cid:"+cid
         if(cid):
             sql += " AND j.category_id = %s"
             conditions = conditions + (cid ,)
         print "conditions:"+str(conditions)
         conditions = conditions+(currRow,limit)
-        sql += " order by j.created_at desc limit %s,%s"
+        if(menu=="latest"):
+            sql += " order by j.created_at desc "
+        elif(menu=="hot"):
+            sql += " order by j.view_count desc "
+        sql += " limit %s,%s"
         print "conditions:"+str(conditions)
 
         sql = sql % conditions
