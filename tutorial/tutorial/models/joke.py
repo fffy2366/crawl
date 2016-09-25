@@ -35,7 +35,7 @@ class Joke:
 
         n.selectDb('joke')
         tbname = 'joke'
-        n.query("select j.id, j.title,j.content,j.created_at,j.category_id,c.title ctitle from %s j left join category c on j.category_id=c.category_id where j.id = %s" %(tbname,v))
+        n.query("select j.id, j.title,j.content,j.view_count,j.created_at,j.category_id,c.title ctitle from %s j left join category c on j.category_id=c.category_id where j.id = %s" %(tbname,v))
         return n.fetchAll()
     def findAll(self):
         n = MySQL()
