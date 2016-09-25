@@ -87,13 +87,18 @@ class MySQL:
 
     def update(self, tbname, data, condition):
         _fields = []
+        _value = []
         _prefix = "".join(['UPDATE `', tbname, '`', 'SET '])
         for key in data.keys():
-            _fields.append("%s = %s" % (key, data[key]))
+            # _fields.append("%s = %s" % (key, data[key]))
+            _fields.append("%s = %s" % (key, '%s'))
+            _value.append(data[key])
         _fieldsStr = ",".join([_field for _field in _fields])
         _sql = "".join([_prefix, _fieldsStr, " WHERE ", condition])
+
         print "update sql:"+_sql
-        return self.cur.execute(_sql)
+        print "_value:"+str(_value)
+        return self.cur.execute(_sql,tuple(_value))
 
     def delete(self, tbname, condition):
         _prefix = "".join(['DELETE FROM  `', tbname, '`', 'WHERE'])

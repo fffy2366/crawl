@@ -82,7 +82,14 @@ def detail(id=None):
     detail = j.findById(id)
     #阅读量加1
     j.addViewCount(id)
-    return my_render_template('detail.html', joke=detail[0])
+    #上一篇 下一篇
+    prev_date = j.prev_next("prev",detail[0],"date")
+    next_date = j.prev_next("next",detail[0],"date")
+    prev_cate = j.prev_next("prev",detail[0],"cate")
+    next_cate = j.prev_next("next",detail[0],"cate")
+
+    relation = {"prev_date":prev_date,"next_date":next_date,"prev_cate":prev_cate,"next_cate":next_cate}
+    return my_render_template('detail.html', joke=detail[0],relation=relation)
 
 @app.route('/baidu_verify_9cWPjuSrYu.html')
 def baidu_verify(id=None):
