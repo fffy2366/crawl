@@ -96,8 +96,8 @@ class MySQL:
         _fieldsStr = ",".join([_field for _field in _fields])
         _sql = "".join([_prefix, _fieldsStr, " WHERE ", condition])
 
-        print "update sql:"+_sql
-        print "_value:"+str(_value)
+        # print "update sql:"+_sql
+        # print "_value:"+str(_value)
         return self.cur.execute(_sql,tuple(_value))
 
     def delete(self, tbname, condition):
