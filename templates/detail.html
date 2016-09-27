@@ -38,14 +38,22 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2">按日期[{{joke['created_at'].replace(' 00:00:00','')}}]：</div>
+		{% if(relation['prev_date'][0])%}
 		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_date'][0]}}.html">{{relation['prev_date'][1]}}</a></div>
+		{%endif%}
+		{% if(relation['next_date'][0])%}
 		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_date'][0]}}.html">{{relation['next_date'][1]}}</a></div>
+		{%endif%}
 	</div>
 
 	<div class="row">
-		<div class="col-md-2">按分类[<a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a>]：</div>
+		<div class="col-md-2">按分类[<a href="/category/{{joke['category_id']}}">{{joke['ctitle']}}</a>]：</div>
+		{% if(relation['prev_cate'][0])%}
 		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_cate'][0]}}.html">{{relation['prev_cate'][1]}}</a></div>
+		{%endif%}
+		{% if(relation['next_cate'][0])%}
 		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_cate'][0]}}.html">{{relation['next_cate'][1]}}</a></div>
+		{%endif%}
 	</div>
 </div>
 {% include 'footer.html' %}
