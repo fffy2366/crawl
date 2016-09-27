@@ -69,8 +69,8 @@ class Joke:
         conditions = (tbname,)
         sqlCount = "SELECT FOUND_ROWS() c"
         sql = "select j.id, j.title,j.view_count,j.created_at,c.title ctitle from %s j left join category c on j.category_id=c.category_id where 1=1 and j.content!='' "
-        print "cid:"+cid
         if(cid):
+            print "cid:"+cid
             sql += " AND j.category_id = %s"
             conditions = conditions + (cid ,)
         print "conditions:"+str(conditions)

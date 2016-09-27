@@ -86,7 +86,7 @@ def hot():
 def category(cid=None):
     return home(cid)
 
-@app.route('/detail/<id>')
+@app.route('/detail/<id>.html')
 def detail(id=None):
     # query = request.args.get('query', '')
     j = Joke()

@@ -29,7 +29,7 @@
 
 	<div class="list-group">
 	{% for j in jokes %}
-		<a target="_self" href="{{host}}/detail/{{j['id']}}" class="list-group-item">
+		<a target="_self" href="{{host}}/detail/{{j['id']}}.html" class="list-group-item">
 			<span class="list-group-item-text">{{j['title']}}</span>
 			{% if menu=="hot" %}
 			<span>({{j['view_count']}})</span>
