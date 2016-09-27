@@ -1,0 +1,6 @@
+#
+# robots.txt for joke
+#
+
+User-agent: *
+Disallow: /admin/
