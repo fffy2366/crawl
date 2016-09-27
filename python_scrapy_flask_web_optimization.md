@@ -75,12 +75,15 @@ update joke set content = replace(content,'href="http://www.jokeji.cn','href="ht
 ## 分类最新、热门
 ## 百度语音读笑话
 
+
 TODO:
 添加分类页面
 最热排序 阅读量-
 共多少页位置
 听笑话
-
+添加上一篇下一篇-
+去掉链接-
+添加评论
 
 
 ## 模板

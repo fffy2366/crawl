@@ -11,6 +11,7 @@ import sqlite3
 from models.category import Category
 from models.joke import Joke
 import datetime
+import re
 
 class TutorialPipeline(object):
     def process_item(self, item, spider):
@@ -41,7 +42,9 @@ class JokePipeline(object):
         # print "len--------->:"
         # print len(j.findByTitleDate(title,created_at+" 00:00:00"))
         if(len(j.findByTitleDate(title,created_at+" 00:00:00"))<1):
-            j.insert({'title':title,'category_id':category_id,'content':''.join(content),'link':link,'view_count':int(view_count),'created_at':created_at+" 00:00:00",'updated_at':updated_at})
+            contentStr = ''.join(content)
+            contentStr = re.sub(r'<a .*>.*</a>','',contentStr)
+            j.insert({'title':title,'category_id':category_id,'content':contentStr,'link':link,'view_count':int(view_count),'created_at':created_at+" 00:00:00",'updated_at':updated_at})
         return item
         
 class FjsenPipeline(object):

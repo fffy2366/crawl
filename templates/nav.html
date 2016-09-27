@@ -25,7 +25,7 @@
                        aria-expanded="false">分类 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         {% for c in category %}
-                        <li><a href="{{host}}?cid={{c['category_id']}}">{{c['title']}}</a></li>
+                        <li><a href="{{host}}/category/{{c['category_id']}}">{{c['title']}}</a></li>
                         {% endfor %}
                     </ul>
                 </li>

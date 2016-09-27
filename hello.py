@@ -37,13 +37,13 @@ def my_render_template(template_name_or_list, **context):
 
     return render_template(template_name_or_list, **context)
 
-def home():
+def home(cid=''):
     if(request.path=="/hot"):
         menu = "hot"
     else:
         menu = "latest"
     page = request.args.get('p', '1')
-    cid = request.args.get('cid', '')
+    # cid = request.args.get('cid', '')
 
     if not page:
         page = 1
@@ -81,14 +81,26 @@ def hello_world():
 def hot():
     return home()
 
+# 分类
+@app.route('/category/<cid>')
+def category(cid=None):
+    return home(cid)
+
 @app.route('/detail/<id>')
 def detail(id=None):
-    query = request.args.get('query', '')
+    # query = request.args.get('query', '')
     j = Joke()
     detail = j.findById(id)
     #阅读量加1
     j.addViewCount(id)
-    return my_render_template('detail.html', joke=detail[0])
+    #上一篇 下一篇
+    prev_date = j.prev_next("prev",detail[0],"date")
+    next_date = j.prev_next("next",detail[0],"date")
+    prev_cate = j.prev_next("prev",detail[0],"cate")
+    next_cate = j.prev_next("next",detail[0],"cate")
+
+    relation = {"prev_date":prev_date,"next_date":next_date,"prev_cate":prev_cate,"next_cate":next_cate}
+    return my_render_template('detail.html', joke=detail[0],relation=relation)
 
 @app.route('/baidu_verify_9cWPjuSrYu.html')
 def baidu_verify(id=None):

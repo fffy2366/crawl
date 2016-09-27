@@ -1,11 +1,16 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}两寸土-笑话集-{{joke['title']}}{% endblock %}
-
+{% block metas%}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="笑话,爆笑笑话,幽默笑话,笑话大全,爆笑短信,xiaohua,冷笑话,短信笑话,小笑话集锦,笑话短信,经典笑话,冷笑话大全,短笑话,搞笑短信,笑话吧,搞笑笑话" />
+	<meta name="description" content="笑话网提供各种笑话,有经典笑话,幽默笑话,爆笑笑话,冷笑话,小笑话集锦,笑话大全,短信笑话,短笑话,爆笑短信,笑话短信,笑话故事,搞笑笑话,笑话吧,笑话大全乐翻天,开心每一天!" />
+{% endblock %}
 {% block head %}
-{{super()}}
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='css/main.css')}}">
-{% include 'baidu_tongji.html' %}
+	{{super()}}
+	<link rel="stylesheet"
+		  href="{{url_for('.static', filename='css/main.css')}}">
+	{% include 'baidu_tongji.html' %}
+	{% include 'google_ad.html' %}
 {% endblock %}
 
 {% block navbar %}
@@ -20,15 +25,28 @@
 <div class="bs-joke-main container">   
 	<ol class="breadcrumb">
 		<li><a href="/">首页</a></li>
-		<li><a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a></li>
+		<li><a href="/category/{{joke['category_id']}}">{{joke['ctitle']}}</a></li>
 		<li class="active">{{joke['title']}}</li>
 	</ol>
 	<!--<h3 class="text-center">两寸土笑话集</h3>
 	<a href="/">首页</a> -> <a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a> -> {{joke['title']}}
 	<span>[{{joke['created_at'].replace(' 00:00:00','')}}]</span>-->
+	<center><h2>{{joke['title']}}</h2></center>
+	<center>[{{joke['created_at'].replace(' 00:00:00','')}}] ({{joke['view_count']}})</center>
 	<div>
 		{{joke['content']|safe}}
-	</div> 
+	</div>
+	<div class="row">
+		<div class="col-md-2">按日期[{{joke['created_at'].replace(' 00:00:00','')}}]：</div>
+		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_date'][0]}}">{{relation['prev_date'][1]}}</a></div>
+		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_date'][0]}}">{{relation['next_date'][1]}}</a></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">按分类[<a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a>]：</div>
+		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_cate'][0]}}">{{relation['prev_cate'][1]}}</a></div>
+		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_cate'][0]}}">{{relation['next_cate'][1]}}</a></div>
+	</div>
 </div>
 {% include 'footer.html' %}
 
