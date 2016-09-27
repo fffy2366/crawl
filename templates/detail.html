@@ -38,14 +38,14 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2">按日期[{{joke['created_at'].replace(' 00:00:00','')}}]：</div>
-		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_date'][0]}}">{{relation['prev_date'][1]}}</a></div>
-		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_date'][0]}}">{{relation['next_date'][1]}}</a></div>
+		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_date'][0]}}.html">{{relation['prev_date'][1]}}</a></div>
+		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_date'][0]}}.html">{{relation['next_date'][1]}}</a></div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-2">按分类[<a href="/?cid={{joke['category_id']}}">{{joke['ctitle']}}</a>]：</div>
-		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_cate'][0]}}">{{relation['prev_cate'][1]}}</a></div>
-		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_cate'][0]}}">{{relation['next_cate'][1]}}</a></div>
+		<div class="col-md-5">上一篇:<a href="/detail/{{relation['prev_cate'][0]}}.html">{{relation['prev_cate'][1]}}</a></div>
+		<div class="col-md-5">下一篇:<a href="/detail/{{relation['next_cate'][0]}}.html">{{relation['next_cate'][1]}}</a></div>
 	</div>
 </div>
 {% include 'footer.html' %}
