@@ -2,12 +2,18 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import make_response
 from tutorial.tutorial.models.category import Category
 from tutorial.tutorial.models.joke import Joke
 from flask_bootstrap import Bootstrap
+from datetime import datetime
+from datetime import timedelta
 
 from config.config import Config
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
+app.config['static_folder'] = 'static'
+app.config['static_url_path'] = ''
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 conf = Config()
 if(Config.ENV=="dev"):
@@ -89,6 +95,25 @@ def baidu_verify(id=None):
     
     return render_template('baidu_verify_9cWPjuSrYu.html')
 
+# [Generating a sitemap.xml](http://flask.pocoo.org/snippets/108/)
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    """Generate sitemap.xml. Makes a list of urls and date modified."""
+    pages=[]
+    # ten_days_ago=datetime.now() - timedelta(days=10).date().isoformat()
+    # category
+    cate = Category()
+    category = cate.findAll()
+    for c in category:
+        pages.append(
+                ["http://"+request.host+"/category/"+c['category_id'],"2016-09-26"]
+            )
+
+    sitemap_xml = render_template('sitemap.xml', pages=pages)
+    response= make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"    
+
+    return response
 
 
 
