@@ -74,6 +74,7 @@ def home(cid=''):
     args = "?"+args if args else ""
     return my_render_template('hello.html', jokes=jokes, query=query,path=request.path,args=args, p=pager,menu=menu,cate=cate)
 @app.route('/')
+@app.route('/home')
 def hello_world():
     return home()
 

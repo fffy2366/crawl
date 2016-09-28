@@ -83,6 +83,7 @@ CREATE TABLE `joke_copy` (
 insert into joke_copy(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke order by created_at asc ;
 
 TRUNCATE table joke ;
+insert into joke(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke_copy order by created_at asc ;
 
 ```
 

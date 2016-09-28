@@ -82,3 +82,7 @@ audio.play();
 ## flask
 [从源码解析Python的Flask框架中request对象的用法](http://www.jb51.net/article/85736.htm)
 [Flask的Jinja2模板引擎 — 控制语句与表达式(1st)](http://www.ttlsa.com/linux/flask-jinja2-template-engine-control-statement-and-expression/)
+
+* flask 进阶
+http://flask.pocoo.org/docs/0.11/patterns/packages/
+http://flask.pocoo.org/docs/0.11/blueprints/#blueprints
