@@ -66,6 +66,24 @@ mv UpFiles ../static/joke
 update joke set content = replace(content,'http://gaoxiao.jokeji.cn','/static/joke') ;
 update joke set content = replace(content,'src="http://www.jokeji.cn','src="/static/joke') ;
 update joke set content = replace(content,'href="http://www.jokeji.cn','href="http://joke.liangcuntu.com') ;
+--按照发布时间更新id
+CREATE TABLE `joke_copy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `content` text,
+  `view_count` int(11) DEFAULT NULL COMMENT '浏览量',
+  `link` varchar(255) DEFAULT NULL COMMENT '抓取链接',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11216 DEFAULT CHARSET=utf8;
+
+insert into joke_copy(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke order by created_at asc ;
+
+TRUNCATE table joke ;
+
 ```
 
 ## 添加分类
@@ -82,8 +100,9 @@ TODO:
 共多少页位置
 听笑话
 添加上一篇下一篇-
-去掉链接-
+去掉链接-bin/tools.py
 添加评论
+添加404页面
 
 
 ## 模板
