@@ -14,7 +14,7 @@
 {% set begin_idx = 1 if curr_page <= 3 else curr_page - left %}
 {% set end_idx = begin_idx + right %}
 {% set end_idx = page_num if end_idx > page_num else end_idx %}
-<ul class="pagination pagination-sm">
+<ul class="pagination _pagination-sm">
     {%if curr_page > 1 %}
     <li><a href="{{uri}}p=1">首页</a></li>
     <li><a href="{{uri}}p={{pre_page}}">&lt;</a></li>
