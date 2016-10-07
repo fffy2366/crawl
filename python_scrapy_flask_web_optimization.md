@@ -16,8 +16,8 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
 ```
+
 ## Flask-boostrap 加载本地资源
 
 [Flask-Bootstrap Configuration](https://pythonhosted.org/Flask-Bootstrap/configuration.html)
@@ -38,7 +38,6 @@ tutorial/tutorial/models/joke.py
 2. 添加定时脚本
 ```
 $ vim bin/crawl.sh
-
 #!/usr/bin/env bash
 #sh bin/crawl.sh
 #chmod -R 755 /opt/www/crawl/bin/crawl.sh
@@ -62,48 +61,47 @@ mv upfilesnew ../static/joke
 mv UpFilesnew ../static/joke
 mv UpFiles ../static/joke
 ```
-```sql
-update joke set content = replace(content,'http://gaoxiao.jokeji.cn','/static/joke') ;
-update joke set content = replace(content,'src="http://www.jokeji.cn','src="/static/joke') ;
-update joke set content = replace(content,'href="http://www.jokeji.cn','href="http://joke.liangcuntu.com') ;
---按照发布时间更新id
-CREATE TABLE `joke_copy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `content` text,
-  `view_count` int(11) DEFAULT NULL COMMENT '浏览量',
-  `link` varchar(255) DEFAULT NULL COMMENT '抓取链接',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `is_deleted` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11216 DEFAULT CHARSET=utf8;
 
-insert into joke_copy(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke order by created_at asc ;
+	```sql
+	update joke set content = replace(content,'http://gaoxiao.jokeji.cn','/static/joke') ;
+	update joke set content = replace(content,'src="http://www.jokeji.cn','src="/static/joke') ;
+	update joke set content = replace(content,'href="http://www.jokeji.cn','href="http://joke.liangcuntu.com') ;
+	--按照发布时间更新id
+	CREATE TABLE `joke_copy` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `title` varchar(255) DEFAULT NULL,
+	  `category_id` int(11) DEFAULT NULL,
+	  `content` text,
+	  `view_count` int(11) DEFAULT NULL COMMENT '浏览量',
+	  `link` varchar(255) DEFAULT NULL COMMENT '抓取链接',
+	  `created_at` datetime DEFAULT NULL,
+	  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+	  `is_deleted` tinyint(1) DEFAULT '0',
+	  PRIMARY KEY (`id`)
+	) ENGINE=MyISAM AUTO_INCREMENT=11216 DEFAULT CHARSET=utf8;
+	insert into joke_copy(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke order by created_at asc ;
+	TRUNCATE table joke ;
+	insert into joke(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke_copy order by created_at asc ;
+	```
 
-TRUNCATE table joke ;
-insert into joke(title,category_id,content,view_count,link,created_at,updated_at,is_deleted) select title,category_id,content,view_count,link,created_at,updated_at,is_deleted from joke_copy order by created_at asc ;
+## TODO:
+1.
+- [x]添加分类
+- [ ]添加搜索
+- [x]添加面包屑
+- [x]添加阅读量
+- [x]分类最新、热门
+- [ ]百度语音读笑话
 
-```
-
-## 添加分类
-## 添加搜索
-## 添加面包屑
-## 添加阅读量
-## 分类最新、热门
-## 百度语音读笑话
-
-
-TODO:
-添加分类页面
-最热排序 阅读量-
-共多少页位置
-听笑话
-添加上一篇下一篇-
-去掉链接-bin/tools.py
-添加评论
-添加404页面
+2.
+- [ ]添加分类页面
+- [x]最热排序 阅读量-
+- [ ]共多少页位置
+- [ ]听笑话
+- [x]添加上一篇下一篇-
+- [x]去掉链接-bin/tools.py
+- [ ]添加评论
+- [x]添加404页面
 
 
 ## 模板
