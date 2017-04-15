@@ -55,7 +55,7 @@ class JokeSpider(scrapy.Spider):
             #日期
             date = li.xpath('i/text()').extract()[0]
             #浏览量 分清encode和decode。str --> decode(c) --> unicode, unicode --> encode(c) --> str，其中编码类型c必须相同。
-            viewcount = li.xpath('span/text()').extract()[0] ;
+            viewcount = li.xpath('span/text()').extract()[0]
             viewcount = viewcount.encode('utf-8').replace("浏览：","").replace("次","")
             args = (index,title,link,date,viewcount)
             

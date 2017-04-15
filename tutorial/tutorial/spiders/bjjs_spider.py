@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from scrapy.spiders import CrawlSpider, Rule
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import BaseSpider
-from scrapy.selector import HtmlXPathSelector
-import re
-from scrapy.http import Request
-import os
-import urllib2
-from tutorial.items import JokeItem
+import sys
+sys.path.append("..")
+from tutorial.models.bjjs_redis import BjjsRedis
+from tutorial.componets.email_send import Email
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
+
 '''
-# 自住型商品房
+# 自住型商品房 内容更新邮件通知
 http://www.bjjs.gov.cn/bjjs/fwgl/zzxspzf/index.shtml
 '''
 class BjjsSpider(scrapy.Spider):
@@ -21,17 +19,28 @@ class BjjsSpider(scrapy.Spider):
     )
     domains = "http://www.bjjs.gov.cn"
     def parse(self, response):
-        # filename = response.url.split("/")[-2] + '.html'
         print("crwwl start:--------------------------------------->")
         lis = response.xpath('//div[@class="tzgg_list_box"]/ul/li')
         for index,li in enumerate(lis):
+            if index>0:
+                break
             title = li.xpath('a/text()').extract()[0]
-            date = li.xpath('span/text()').extract()[0]
-            # print title
-            # print date
+            date_arr = li.xpath('span/text()').extract()
             # 对比是否最新消息，如果最新发邮件通知
             # 保存redis
-            
-
-
-    
+            br = BjjsRedis()
+            last_news = br.get("bjjs_last_news")
+            if last_news != title+date_arr[0] :
+                br.save("bjjs_last_news",title+date_arr[0])
+                # 邮件通知
+                print "email notice"
+                email = Email()
+                link = "<a href=\"http://www.bjjs.gov.cn/bjjs/fwgl/zzxspzf/index.shtml\">查看</a>"
+                content  = title+link
+                content = u''.join(content).encode('utf-8').strip()
+                # Todo:1.字符编码√
+                # Todo:2.发送html内容√
+                if email.send_mail(["fengxuting@qq.com"],"自住型商品房内容更新了",content):
+                    print "send success"
+                else:
+                    print "send fail"
