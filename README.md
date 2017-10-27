@@ -42,6 +42,7 @@ https://segmentfault.com/a/1190000002544142
 http://www.zhihu.com/question/20899988
 http://www.360doc.cn/article/972619_34106632.html
 
+[Python爬虫：Xpath语法笔记](http://blog.csdn.net/qw_xingzhe/article/details/53057424)
 [用python爬取文章链接并分类](http://blog.csdn.net/yuxiangyunei/article/details/50438936)
 [使用scrapy实现爬网站例子和实现网络爬虫(蜘蛛)的步骤](http://www.jb51.net/article/46107.htm)
 
