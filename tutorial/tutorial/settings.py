@@ -38,6 +38,9 @@ IPPOOL=[
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16
 
+# for : TimeoutError: User timeout caused connection failure
+DOWNLOAD_TIMEOUT=300
+
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED=False
 
