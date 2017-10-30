@@ -20,7 +20,7 @@ class BjjsSpider(scrapy.Spider):
     domains = "http://www.bjjs.gov.cn"
     def parse(self, response):
         print("crwwl start:--------------------------------------->")
-        lis = response.xpath('//div[@id="tzgg1"]/ul[@class="ul_list"]/li')
+        lis = response.xpath('//ul[@class="ul_list"]/li')
         for index,li in enumerate(lis):
             if index>0:
                 break
