@@ -61,7 +61,7 @@ IPPOOL=[
 DOWNLOADER_MIDDLEWARES = {
 	#'tutorial.middlewares.MyCustomDownloaderMiddleware': 543,
 	'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,  
-	'myproxies.middlewares.MyproxiesSpiderMiddleware':125 
+	'tutorial.middlewares.MyproxiesSpiderMiddleware':125 
 }
 
 # Enable or disable extensions
