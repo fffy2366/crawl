@@ -16,6 +16,13 @@ http://www.jokeji.cn/list_2.htm
 http://www.jokeji.cn/list_535.htm
 '''
 class JokeSpider(scrapy.Spider):
+    def __init__(self):  
+        self.headers = {  
+            'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',  
+            'Accept-Encoding':'gzip, deflate',  
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'  
+        }
+         
     name = "joke"
     allowed_domains = ["jokeji.cn"]
     start_urls = (

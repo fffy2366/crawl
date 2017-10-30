@@ -14,6 +14,15 @@ BOT_NAME = 'tutorial'
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
+IPPOOL=[  
+	{"ipaddr":"222.174.168.102:53281"},  
+	{"ipaddr":"120.78.130.221:3128"},  
+	{"ipaddr":"125.46.0.62:53281"},  
+	{"ipaddr":"122.72.18.35:80"},  
+	{"ipaddr":"61.160.208.222:8080"},  
+	{"ipaddr":"222.161.16.10:9999"},  
+	{"ipaddr":"120.24.89.85:3128"}  
+]  
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
@@ -49,9 +58,11 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'tutorial.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+	#'tutorial.middlewares.MyCustomDownloaderMiddleware': 543,
+	'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,  
+	'myproxies.middlewares.MyproxiesSpiderMiddleware':125 
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
