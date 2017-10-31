@@ -14,26 +14,29 @@ BOT_NAME = 'tutorial'
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
-IPPOOL=[  
-	{"ipaddr":"222.174.168.102:53281"},  
-	{"ipaddr":"120.78.130.221:3128"},  
-	{"ipaddr":"125.46.0.62:53281"},  
-	{"ipaddr":"122.72.18.35:80"},  
-	{"ipaddr":"61.160.208.222:8080"},  
-	{"ipaddr":"222.161.16.10:9999"},  
-	{"ipaddr":"120.24.89.85:3128"}  
-]  
+# IPPOOL=[  
+# 	{"ipaddr":"222.174.168.102:53281"},  
+# 	{"ipaddr":"120.78.130.221:3128"},  
+# 	{"ipaddr":"125.46.0.62:53281"},  
+# 	{"ipaddr":"122.72.18.35:80"},  
+# 	{"ipaddr":"61.160.208.222:8080"},  
+# 	{"ipaddr":"222.161.16.10:9999"},  
+# 	{"ipaddr":"120.24.89.85:3128"}  
+# ]  
 
+IPPOOL=[  
+	{"ipaddr":"116.213.144.93:8628"} 
+] 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# CONCURRENT_REQUESTS=32
+CONCURRENT_REQUESTS=5
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY=3
+DOWNLOAD_DELAY=3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16
