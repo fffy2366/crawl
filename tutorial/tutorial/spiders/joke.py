@@ -85,9 +85,9 @@ class JokeSpider(scrapy.Spider):
         # title = div_left_up.xpath('h1/a/text()').extract()[2]
         title = response.meta['title']
         category = div_left_up.xpath('h1/a/text()').extract()[1]
-        content = div_left_up.xpath('ul/span[2]/p').extract()
+        content = div_left_up.xpath('ul/span[@id="text110"]/p').extract()
         link = response.url
-        img = div_left_up.xpath('ul/span[2]/p/img/@src').extract()
+        img = div_left_up.xpath('ul/span[@id="text110"]/p/img/@src').extract()
         # print("title:"+title)
         # print("category----->:"+category)
         # print("link----->:"+link)
