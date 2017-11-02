@@ -19,7 +19,7 @@ class TutorialPipeline(object):
 
 class JokePipeline(object):
     def process_item(self, item, spider):
-        # print item
+        print item
         category = item['category'] 
         title = item['title'] 
         content = item['content'] 
