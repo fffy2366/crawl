@@ -19,7 +19,7 @@ class TutorialPipeline(object):
 
 class JokePipeline(object):
     def process_item(self, item, spider):
-        print item
+        # print item
         category = item['category'] 
         title = item['title'] 
         content = item['content'] 
@@ -39,8 +39,8 @@ class JokePipeline(object):
 
         j = Joke()
         #根据标题和日期查找该数据是否存在，不存在才保存
-        # print "len--------->:"
-        # print len(j.findByTitleDate(title,created_at+" 00:00:00"))
+        print "len--------->:"
+        print len(j.findByTitleDate(title,created_at+" 00:00:00"))
         if(len(j.findByTitleDate(title,created_at+" 00:00:00"))<1):
             contentStr = ''.join(content)
             contentStr = re.sub(r'<a .*>.*</a>','',contentStr)
